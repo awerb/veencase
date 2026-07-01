@@ -90,6 +90,20 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .hdr .r{display:flex;align-items:center;gap:18px;}
 .hdr .tel{color:#fff;font-size:13.5px;font-weight:600;letter-spacing:.01em;opacity:.92;}
 .hdr .tel:hover{opacity:1;}
+.menu-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:transparent;border:1px solid var(--line-dark-2);border-radius:10px;color:#fff;cursor:pointer;flex-shrink:0;}
+.menu-btn svg{width:19px;height:19px;}
+.menu-btn .x{display:none;}
+.menu-btn[aria-expanded="true"] .bars{display:none;}
+.menu-btn[aria-expanded="true"] .x{display:block;}
+.mobile-nav{display:none;}
+.mobile-nav[data-open]{display:block;}
+.mobile-nav{background:var(--ink-2);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);padding:10px 22px 26px;}
+.mobile-nav nav{display:flex;flex-direction:column;}
+.mobile-nav nav a{color:var(--body-on-dark);font-size:16px;font-weight:600;padding:14px 0;border-top:1px solid var(--line-dark);}
+.mobile-nav nav a:first-child{border-top:0;}
+.mobile-nav nav a.here{color:#fff;}
+.mobile-nav .mrow{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;flex-wrap:wrap;}
+.mobile-nav .tel{color:#fff;font-size:15px;font-weight:600;}
 
 /* ============ MASTHEAD ============ */
 .mast{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden;}
@@ -308,6 +322,8 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 }
 @media(max-width:860px){
   .hdr nav,.hdr .tel{display:none;}
+  .menu-btn{display:flex;}
+  .fgrid{grid-template-columns:1fr;gap:44px;}
   .ledger .inner{grid-template-columns:1fr 1fr;}
   .ledger .cell:nth-child(3){border-left:0;padding-left:0;}
   .ledger .cell{border-top:1px solid var(--line-dark);}
@@ -348,6 +364,23 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
       <a href="#" class="here">Press Room</a>
     </nav>
     <div class="r">
+      <a class="tel" href="tel:4156734800">(415) 673-4800</a>
+      <a class="btn btn-primary btn-sm" href="https://www.veenfirm.com/contact/">Free Case Evaluation<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+    </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <nav>
+      <a href="https://www.veenfirm.com/attorneys/">Attorneys</a>
+      <a href="https://www.veenfirm.com/case-results/">Case Results</a>
+      <a href="https://www.veenfirm.com/practice-areas/">Practice Areas</a>
+      <a href="https://www.veenfirm.com/blog/">Blog</a>
+      <a href="#" class="here">Press Room</a>
+    </nav>
+    <div class="mrow">
       <a class="tel" href="tel:4156734800">(415) 673-4800</a>
       <a class="btn btn-primary btn-sm" href="https://www.veenfirm.com/contact/">Free Case Evaluation<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
     </div>
@@ -904,6 +937,25 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
       entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
     },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(e){io.observe(e);});
+  })();
+  // Mobile nav toggle
+  (function(){
+    var btn=document.getElementById('menu-btn');
+    var panel=document.getElementById('mobile-nav');
+    if(!btn||!panel) return;
+    btn.addEventListener('click',function(){
+      var open=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded',open?'false':'true');
+      btn.setAttribute('aria-label',open?'Open menu':'Close menu');
+      if(open){panel.removeAttribute('data-open');}else{panel.setAttribute('data-open','');}
+    });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        btn.setAttribute('aria-expanded','false');
+        btn.setAttribute('aria-label','Open menu');
+        panel.removeAttribute('data-open');
+      });
+    });
   })();
   // Press release expand
   document.querySelectorAll('.toggle').forEach(function(btn){

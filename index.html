@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 <style>
 /* ============================================================
    The Veen Firm Press Room
@@ -34,11 +33,15 @@
   --line:#e1e3e9; --line-soft:#ebedf1; --line-dark:rgba(255,255,255,.10); --line-dark-2:rgba(255,255,255,.18);
   --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --maxw:1240px; --measure:680px;
+  --shadow-sm:0 1px 2px rgba(22,25,32,.05),0 4px 14px rgba(22,25,32,.05);
+  --shadow-card:0 1px 2px rgba(22,25,32,.06),0 14px 36px rgba(22,25,32,.09);
   --e-soft:cubic-bezier(.22,1,.36,1);
   --e-spring:cubic-bezier(.32,.72,0,1);
 }
 *,*::before,*::after{box-sizing:border-box;}
-html{-webkit-text-size-adjust:100%;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+[id]{scroll-margin-top:88px;}
 body{margin:0;font-family:var(--sans);font-weight:400;font-size:18px;line-height:1.62;color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
 h1,h2,h3,h4{margin:0;font-weight:600;color:var(--ink-90);line-height:1.08;letter-spacing:-.015em;text-wrap:balance;}
 p{margin:0;text-wrap:pretty;}
@@ -108,9 +111,9 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 
 /* ============ MASTHEAD ============ */
 .mast{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden;}
-.mast::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 34%,rgba(22,25,32,.72) 100%);pointer-events:none;}
+.mast::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--ink) 34%,rgba(22,25,32,.72) 100%);pointer-events:none;}
 .mast .ph{position:absolute;inset:0;background:url('https://www.veenfirm.com/wp-content/themes/mega-theme/images/san-francisco-personal-injury-law-firm.jpg') center/cover, var(--ink);opacity:.16;filter:grayscale(.4) contrast(1.02);}
-.mast .inner{position:relative;max-width:var(--maxw);margin:0 auto;padding:96px 40px 0;}
+.mast .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:96px 40px 0;}
 .mast .kicker{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
 .mast .kicker .ln{height:1px;width:54px;background:var(--wine-bright);opacity:.8;}
 .mast h1{color:#fff;font-size:clamp(3.4rem,10vw,8rem);line-height:.96;letter-spacing:-.03em;font-weight:600;}
@@ -121,12 +124,12 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .mast .actions{display:flex;gap:14px;flex-wrap:wrap;padding-bottom:64px;}
 
 /* proof ledger */
-.ledger{position:relative;border-top:1px solid var(--line-dark);background:var(--ink-2);}
+.ledger{position:relative;z-index:2;border-top:1px solid var(--line-dark);background:var(--ink-2);}
 .ledger .inner{max-width:var(--maxw);margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);}
 .ledger .cell{padding:34px 28px 38px;border-left:1px solid var(--line-dark);}
 .ledger .cell:first-child{border-left:0;padding-left:0;}
 .ledger .n{font-size:clamp(2.4rem,4.4vw,3.5rem);font-weight:600;letter-spacing:-.03em;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
-.ledger .n .u{color:inherit;}
+.ledger .n .u{color:var(--wine-bright);}
 .ledger .l{margin-top:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-dark);line-height:1.5;}
 
 /* ============ SECTION SCAFFOLD ============ */
@@ -142,11 +145,6 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .sec.ink .sec-head .note{color:var(--muted-on-dark);}
 
 /* ============ NEWSROOM INDEX ============ */
-.era{margin-top:64px;}
-.era-label{display:flex;align-items:baseline;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--ink-90);margin-bottom:8px;}
-.era-label h3{font-size:15px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-90);}
-.era-label .sub{font-size:13px;color:var(--muted);letter-spacing:.02em;}
-
 /* lead feature */
 .lead{margin-top:40px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-card);overflow:hidden;}
 .lead-core{background:var(--paper);}
@@ -156,7 +154,7 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .dateline{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
 .dateline .d{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-90);font-variant-numeric:tabular-nums;}
 .pip{width:4px;height:4px;border-radius:50%;background:var(--wine);}
-.cat{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);}
+.cat{display:inline-flex;align-items:center;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);background:var(--wine-tint);padding:5px 13px;border-radius:999px;line-height:1.3;}
 .lead h3.hl{font-size:clamp(1.9rem,3.3vw,2.85rem);line-height:1.05;letter-spacing:-.025em;color:var(--ink-90);}
 .lead .case{margin-top:14px;font-size:13.5px;color:var(--muted);letter-spacing:.01em;}
 .lead .dek{margin-top:22px;font-size:19px;line-height:1.55;color:var(--text);max-width:52ch;}
@@ -164,10 +162,13 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .lead .by b{color:var(--ink-90);font-weight:600;}
 .lead .cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px;}
 .lead-side .sidehd{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;}
-.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 22px;}
-.impact .n{font-size:2.6rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);line-height:.95;font-variant-numeric:tabular-nums;}
-.impact .n .u{color:inherit;}
-.impact .l{margin-top:8px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.4;}
+.impact{display:flex;flex-direction:column;}
+.impact>div{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:15px 0;border-top:1px solid var(--line);}
+.impact>div:first-child{border-top:0;padding-top:0;}
+.impact>div:last-child{padding-bottom:0;}
+.impact .n{font-size:2.1rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);line-height:.95;font-variant-numeric:tabular-nums;}
+.impact .n .u{color:var(--wine);}
+.impact .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.4;text-align:right;}
 
 /* coverage rail */
 .cov{border-top:1px solid var(--line-soft);padding:30px 48px 40px;}
@@ -184,6 +185,8 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .outlet.firm{color:var(--wine);font-weight:600;}
 .outlet.firm::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--wine);margin-right:8px;transform:translateY(-2px);}
 .synth{margin-top:18px;font-size:13.5px;color:var(--muted);font-style:italic;}
+
+/* wire distribution disclosure */
 
 /* index rows (non-lead stories) */
 .rows{margin-top:18px;}
@@ -202,8 +205,11 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .row .outlets .outlet{font-size:13.5px;padding-top:7px;padding-bottom:7px;}
 .row .aside{justify-self:end;text-align:right;min-width:150px;padding-top:3px;}
 .row .figure{font-size:2.1rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);line-height:1;font-variant-numeric:tabular-nums;}
+.row .figure .u{color:var(--wine);}
 .row .figure-l{margin-top:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);max-width:18ch;margin-left:auto;line-height:1.4;}
 .row .pr{margin-top:16px;}
+
+/* boxed component: eyebrow bar + body (recognition list) */
 
 /* ============ PRESS RELEASES ============ */
 .releases{margin-top:56px;display:flex;flex-direction:column;gap:0;}
@@ -263,14 +269,14 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .shot .dl.off:hover{background:var(--paper);border-color:var(--line);color:var(--faint);transform:none;}
 
 .kitrow{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px;}
-.kit{display:flex;align-items:center;gap:22px;background:var(--platinum-2);border:1px solid var(--line);border-radius:18px;padding:22px 26px;}
+.kit{display:flex;align-items:center;gap:22px;background:var(--platinum-2);border:1px solid var(--line);border-radius:16px;padding:22px 26px;}
 .kit .sw{width:118px;height:74px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .kit .sw.dk{background:var(--ink);}
 .kit .sw.lt{background:var(--paper);border:1px solid var(--line);}
 .kit .sw img{height:24px;}
 .kit .t{font-weight:600;color:var(--ink-90);font-size:15px;}
 .kit .d{font-size:12.5px;color:var(--muted);margin:3px 0 12px;}
-.kitbanner{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;background:var(--ink);border-radius:22px;padding:38px 44px;}
+.kitbanner{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;background:var(--ink);border-radius:20px;padding:38px 44px;}
 .kitbanner h3{color:#fff;font-size:1.55rem;letter-spacing:-.02em;}
 .kitbanner p{color:var(--body-on-dark);margin-top:8px;font-size:15px;max-width:48ch;}
 
@@ -278,7 +284,7 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .results{margin-top:48px;border-top:1px solid var(--ink-90);}
 .res{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);}
 .res .amt{font-size:1.9rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);font-variant-numeric:tabular-nums;line-height:1;}
-.res .amt .u{color:inherit;}
+.res .amt .u{color:var(--wine);}
 .res .desc{display:flex;flex-direction:column;gap:5px;}
 .res .desc .ct{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);}
 .res .desc .tx{font-size:15.5px;color:var(--text);line-height:1.5;}
@@ -293,7 +299,7 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .about .fact{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:24px 0;border-top:1px solid var(--line-dark);}
 .about .fact:last-child{border-bottom:1px solid var(--line-dark);}
 .about .fact .n{font-size:2.4rem;font-weight:600;letter-spacing:-.03em;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
-.about .fact .n .u{color:inherit;}
+.about .fact .n .u{color:var(--wine-bright);}
 .about .fact .l{text-align:right;font-size:13px;color:var(--muted-on-dark);max-width:22ch;line-height:1.5;}
 .pa{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px;}
 .pa span{border:1px solid var(--line-dark-2);border-radius:999px;padding:7px 15px;font-size:12.5px;color:var(--body-on-dark);}
@@ -313,6 +319,20 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 .legal{max-width:var(--maxw);margin:56px auto 0;padding:30px 40px 0;border-top:1px solid var(--line-dark);}
 .legal p{color:var(--muted-on-dark);font-size:13px;line-height:1.7;max-width:92ch;}
 .legal .cr{margin-top:14px;letter-spacing:.04em;}
+
+/* ============ QUICK BAR (for journalists) ============ */
+.quickbar{background:var(--platinum-2);border-bottom:1px solid var(--line);}
+.quickbar .inner{max-width:var(--maxw);margin:0 auto;padding:14px 40px;display:flex;align-items:baseline;flex-wrap:wrap;row-gap:8px;}
+.quickbar .qb-l{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--wine);margin-right:28px;}
+.quickbar a{font-size:13.5px;font-weight:600;color:var(--ink-90);transition:color .3s var(--e-soft);white-space:nowrap;padding:2px 24px;border-left:1px solid var(--line);}
+.quickbar a:nth-of-type(1){border-left:0;padding-left:0;}
+.quickbar a:hover{color:var(--wine);}
+/* honors list (about) */
+.honors{margin-top:30px;display:flex;flex-direction:column;}
+.honors a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--line-dark);color:#fff;font-weight:600;font-size:14.5px;transition:color .3s;}
+.honors a:last-child{border-bottom:1px solid var(--line-dark);}
+.honors a:hover{color:var(--wine-bright);}
+.honors a span{font-weight:400;color:var(--muted-on-dark);font-size:13px;white-space:nowrap;}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1040px){
@@ -341,15 +361,15 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
   .release .grid{grid-template-columns:1fr;gap:14px;}
 }
 @media(max-width:560px){
-  .wrap,.hdr,.mast .inner,.ledger .inner,.fgrid,.legal{padding-inline:22px;}
+  .wrap,.hdr,.mast .inner,.ledger .inner,.quickbar .inner,.fgrid,.legal{padding-inline:22px;}
   .lead-main,.lead-side,.cov{padding-left:26px;padding-right:26px;}
-  .impact{grid-template-columns:1fr 1fr;gap:22px 16px;}
   .photos{grid-template-columns:1fr 1fr;gap:14px;}
   .kitrow,.kitbanner{grid-template-columns:1fr;}
   .res{grid-template-columns:1fr;gap:6px;}
   .sec{padding:72px 0;}
 }
 </style>
+<noscript><style>.reveal{opacity:1;transform:none;}</style></noscript>
 </head>
 <body>
 
@@ -404,7 +424,6 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
       <a class="btn btn-primary" href="#contact">Media inquiries<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
       <a class="btn btn-dark" href="#assets">Press kit &amp; photos<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
       <a class="btn btn-dark" href="video-room.html">Video room<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-<a class="btn btn-dark" href="#map">Coverage map<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span></a>
     </div>
   </div>
   <div class="ledger">
@@ -417,6 +436,18 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
   </div>
 </section>
 
+<!-- ============ FOR JOURNALISTS (QUICK BAR) ============ -->
+<div class="quickbar">
+  <div class="inner">
+    <span class="qb-l">For journalists</span>
+    <a href="tel:5105606731">Press line (510) 560-6731</a>
+    <a href="mailto:info@veenfirm.com">info@veenfirm.com</a>
+    <a href="Veen-Press-Kit.zip" download>Press kit (ZIP) &#8595;</a>
+    <a href="#assets">Attorney photos &#8595;</a>
+    <a href="video-room.html">Video room &#8599;</a>
+  </div>
+</div>
+
 <!-- ============ NEWSROOM INDEX ============ -->
 <section id="news" class="sec light">
   <div class="wrap">
@@ -425,40 +456,31 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
         <span class="eyebrow">The Index</span>
         <h2>In the News</h2>
       </div>
-      <p class="note">Most recent first. Active matters are described as alleged.</p>
+      <p class="note">The firm&rsquo;s cases in the news, most recent first.</p>
     </div>
 
-    <!-- ERA: last 18 months -->
-    <div class="era">
-      <div class="era-label reveal">
-        <h3>The last eighteen months</h3>
-        <span class="sub">January 2025 to June 2026</span>
-      </div>
-
-      <!-- LEAD: TESLA -->
-      <article class="lead reveal">
+    <article class="lead reveal">
         <div class="lead-core">
           <div class="lead-top">
             <div class="lead-main">
               <div class="dateline">
-                <span class="d">March 17, 2026</span><span class="pip"></span><span class="cat">Product Liability</span>
+                <span class="d">May 22, 2026</span><span class="pip"></span><span class="cat">Civil Rights</span>
               </div>
-              <h3 class="hl">Sole survivor of the Piedmont Cybertruck crash sues Tesla</h3>
-              <div class="case">Miller v. Tesla, Inc. · Alameda County Superior Court, No. 25CV135984</div>
-              <p class="dek">The complaint alleges no exterior door handles, electronic buttons that failed after impact, and reinforced glass that kept a rescuer out, trapping four college students in a burning vehicle.</p>
-              <p class="by">Attorneys <b>Annie Wu</b> and <b>Anthony L. Label</b></p>
+              <h3 class="hl">Twenty women sue the San Francisco Sheriff over an alleged mass jail strip search</h3>
+              <div class="case">Sahagun Lopez v. City and County of San Francisco &middot; U.S. District Court, Northern District of California</div>
+              <p class="dek">Filed on the one-year anniversary of the searches, the complaint alleges a pattern of degrading, recorded, cross-gender searches at County Jail No. 2, and retaliation against women who complained.</p>
+              <p class="by">Attorneys <b>Anthony L. Label</b> and <b>Molly Ryan</b>, with co-counsel Elizabeth Bertolino</p>
               <div class="cta-row">
-                <a class="btn btn-primary btn-sm" href="#pr-tesla">Read the release<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-                <a class="btn btn-ghost btn-sm" href="assets/press-releases/Veen-Press-Release_Miller-v-Tesla.pdf" target="_blank" rel="noopener">Download PDF<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
-                <a class="tlink" style="align-self:center" href="https://www.veenfirm.com/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">Blog post <span class="ar">&#8599;</span></a>
+                <a class="btn btn-primary btn-sm" href="https://www.veenfirm.com/sf-jail-strip-search-lawsuit/" target="_blank" rel="noopener">Read the firm&rsquo;s statement<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+                <a class="btn btn-ghost btn-sm" href="https://apnews.com/press-release/ein-presswire-newsmatics/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail-ea2c680fe40522a937264a1afa26fcf5" target="_blank" rel="noopener">Read the release<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
               </div>
             </div>
             <div class="lead-side">
-              <div class="sidehd">Documented media impact</div>
+              <div class="sidehd">Media coverage</div>
               <div class="impact">
-                <div><div class="n">130<span class="u">+</span></div><div class="l">Media hits</div></div>
-                <div><div class="n">5</div><div class="l">Tier-1 broadcasts</div></div>
-                <div><div class="n">4</div><div class="l">Global features</div></div>
+                <div><div class="n">11<span class="u">+</span></div><div class="l">News outlets</div></div>
+                <div><div class="n">20</div><div class="l">Named plaintiffs</div></div>
+                <div><div class="n">78</div><div class="l">Wire pickups</div></div>
               </div>
             </div>
           </div>
@@ -466,97 +488,45 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
             <div class="cov-h">Select coverage</div>
             <div class="cov-grid">
               <div class="cov-row" style="display:contents">
-                <div class="cov-tier">National &amp; global</div>
-                <div class="cov-list">
-                  <a class="outlet" href="https://www.bloomberg.com/features/2025-tesla-dangerous-doors/" target="_blank" rel="noopener">Bloomberg<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.theguardian.com/technology/2026/mar/18/tesla-cybertruck-crashes-battery-fires" target="_blank" rel="noopener">The Guardian<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.msn.com/en-us/money/other/tesla-is-sued-by-survivor-of-deadly-california-cybertruck-crash/ar-AA1YQIyJ" target="_blank" rel="noopener">MSN<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://autos.yahoo.com/safety-and-recalls/articles/survivor-deadly-cybertruck-crash-bay-100000830.html" target="_blank" rel="noopener">Yahoo<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.dailymail.co.uk/news/article-15657179/survivor-lawsuit-piedmont-college-student-tesla-cybertruck-crash.html" target="_blank" rel="noopener">Daily Mail<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.aol.com/news/sole-survivor-piedmont-cybertruck-crash-050335781.html" target="_blank" rel="noopener">AOL<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.aol.com/articles/teslas-electronic-door-system-prevented-123000507.html" target="_blank" rel="noopener">PEOPLE<span class="ar">&#8599;</span></a>
-                </div>
-              </div>
-              <div class="cov-row" style="display:contents">
                 <div class="cov-tier">Bay Area</div>
                 <div class="cov-list">
-                  <a class="outlet" href="https://www.sfchronicle.com/bayarea/article/piedmont-cybertruck-crash-lawsuit-22082164.php" target="_blank" rel="noopener">SF Chronicle<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.cbsnews.com/sanfrancisco/news/cybertruck-fatal-crash-piedmont-california-survivor-sues-automaker/" target="_blank" rel="noopener">CBS Bay Area<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.nbcbayarea.com/news/local/piedmont-cybertruck-crash-tesla-lawsuit/4053492/" target="_blank" rel="noopener">NBC Bay Area<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://abc7news.com/post/sole-survivor-fiery-2024-piedmont-cybertruck-crash-files-lawsuit-tesla/18727733/" target="_blank" rel="noopener">ABC7<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.ktvu.com/news/sole-survivor-piedmont-cybertruck-crash-latest-sue-tesla-over-door-design" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.mercurynews.com/2026/03/17/sole-survivor-cybertruck-crash-piedmont-sues-tesla-door-handles/" target="_blank" rel="noopener">Mercury News<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.eastbaytimes.com/2026/03/17/sole-survivor-cybertruck-crash-piedmont-sues-tesla-door-handles/" target="_blank" rel="noopener">East Bay Times<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.kron4.com/news/bay-area/sole-survivor-of-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">KRON4<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://sfstandard.com/2026/03/17/jordan-miller-sues-tesla-piedmont-crash/" target="_blank" rel="noopener">SF Standard<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://sfist.com/2026/03/18/piedmont-cybertruck-crash-survivor-files-lawsuit-against-tesla-over-faulty-door-locks/" target="_blank" rel="noopener">SFist<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://localnewsmatters.org/2026/03/24/piedmont-cybertruck-crash-third-lawsuit-tesla-design-flaw/" target="_blank" rel="noopener">Local News Matters<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://www.sfchronicle.com/politics/article/sf-jail-strip-search-lawsuit-22272504.php" target="_blank" rel="noopener">SF Chronicle<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://www.kqed.org/news/12084968/20-women-sue-sf-sheriffs-office-over-alleged-mass-strip-search" target="_blank" rel="noopener">KQED<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://missionlocal.org/2026/05/sf-jail-women-mass-strip-search-lawsuit/" target="_blank" rel="noopener">Mission Local<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://sfstandard.com/2026/05/22/san-francisco-sheriff-sued-women-strip-search/" target="_blank" rel="noopener">SF Standard<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://www.sfgate.com/news/bayarea/article/sf-civil-rights-activists-rally-to-demand-22272922.php" target="_blank" rel="noopener">SFGATE<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://www.ktvu.com/news/women-file-class-action-lawsuit-over-sf-jail-strip-searches" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://localnewsmatters.org/2026/05/23/prey-upon-the-vulnerable-women-break-silence-on-alleged-sf-jail-strip-search-in-new-lawsuit/" target="_blank" rel="noopener">Local News Matters<span class="ar">&#8599;</span></a>
                 </div>
               </div>
               <div class="cov-row" style="display:contents">
-                <div class="cov-tier">Legal &amp; niche</div>
+                <div class="cov-tier">Legal &amp; national</div>
                 <div class="cov-list">
-                  <a class="outlet" href="https://natlawreview.com/press-releases/sole-survivor-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla" target="_blank" rel="noopener">National Law Review<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.claimsjournal.com/news/national/2026/03/19/336353.htm" target="_blank" rel="noopener">Claims Journal<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.insurancejournal.com/news/national/2026/03/19/862499.htm" target="_blank" rel="noopener">Insurance Journal<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.autosafety.org/inside-the-fiery-deadly-crashes-involving-the-tesla-cybertruck/" target="_blank" rel="noopener">Center for Auto Safety<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://piedmontexedra.com/2026/03/cybertruck-crash-survivor-updates-lawsuit" target="_blank" rel="noopener">Piedmont Exedra<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.reddit.com/r/bayarea/comments/1rwpm25/sole_survivor_of_piedmont_cybertruck_crash_sues/" target="_blank" rel="noopener">r/bayarea<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://natlawreview.com/press-releases/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded" target="_blank" rel="noopener">National Law Review<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://davisvanguard.org/2026/05/women-detained-jail-lawsuit/" target="_blank" rel="noopener">Davis Vanguard<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://www.yahoo.com/news/us/articles/20-women-sue-sf-sheriff-022907295.html" target="_blank" rel="noopener">NY Post (via Yahoo)<span class="ar">&#8599;</span></a>
                 </div>
               </div>
               <div class="cov-row" style="display:contents">
                 <div class="cov-tier">Wire</div>
                 <div class="cov-list">
-                  <a class="outlet" href="https://apnews.com/press-release/ein-presswire-newsmatics/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla-a88a77a9f4c60c74256685cbb88d07cd" target="_blank" rel="noopener">AP News<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.desmoinesregister.com/press-release/story/48960/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">Des Moines Register<span class="ar">&#8599;</span></a>
-                  <a class="outlet" href="https://www.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla" target="_blank" rel="noopener">EIN Presswire<span class="ar">&#8599;</span></a>
+                  <a class="outlet" href="https://apnews.com/press-release/ein-presswire-newsmatics/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail-ea2c680fe40522a937264a1afa26fcf5" target="_blank" rel="noopener">AP News<span class="ar">&#8599;</span></a>
                 </div>
               </div>
             </div>
-            <p class="synth">Roughly 120 additional regional and national sites carried the filing through the AP and EIN syndication network.</p>
+            <p class="synth">Carried by 78 additional outlets through the AP and EIN Presswire syndication network.</p>
           </div>
         </div>
       </article>
 
-      <!-- INDEX ROWS -->
       <div class="rows">
 
-        <!-- STRIP SEARCH -->
-        <article class="row reveal">
-          <div class="when">May 22, 2026<span class="yr">Federal class action</span></div>
-          <div class="body">
-            <span class="cat">Civil Rights · Active litigation</span>
-            <h4>Twenty women sue the San Francisco Sheriff over an alleged mass jail strip search</h4>
-            <div class="case">Sahagun Lopez v. City and County of San Francisco · U.S. District Court, Northern District of California</div>
-            <p class="dek">Filed on the one-year anniversary of the searches, the complaint alleges a pattern of degrading, recorded, cross-gender searches at County Jail No. 2, and retaliation against women who complained.</p>
-            <p class="by">Attorneys <b>Anthony L. Label</b> and <b>Molly Ryan</b>, with co-counsel Elizabeth Bertolino</p>
-            <div class="outlets">
-              <a class="outlet firm" href="https://www.veenfirm.com/sf-jail-strip-search-lawsuit/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://www.sfchronicle.com/politics/article/sf-jail-strip-search-lawsuit-22272504.php" target="_blank" rel="noopener">SF Chronicle<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://www.kqed.org/news/12084968/20-women-sue-sf-sheriffs-office-over-alleged-mass-strip-search" target="_blank" rel="noopener">KQED<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://missionlocal.org/2026/05/sf-jail-women-mass-strip-search-lawsuit/" target="_blank" rel="noopener">Mission Local<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://sfstandard.com/2026/05/22/san-francisco-sheriff-sued-women-strip-search/" target="_blank" rel="noopener">SF Standard<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://www.sfgate.com/news/bayarea/article/sf-civil-rights-activists-rally-to-demand-22272922.php" target="_blank" rel="noopener">SFGATE<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://www.ktvu.com/news/women-file-class-action-lawsuit-over-sf-jail-strip-searches" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://www.yahoo.com/news/us/articles/20-women-sue-sf-sheriff-022907295.html" target="_blank" rel="noopener">New York Post<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://localnewsmatters.org/2026/05/23/prey-upon-the-vulnerable-women-break-silence-on-alleged-sf-jail-strip-search-in-new-lawsuit/" target="_blank" rel="noopener">Local News Matters<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://natlawreview.com/press-releases/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded" target="_blank" rel="noopener">National Law Review<span class="ar">&#8599;</span></a>
-              <a class="outlet" href="https://davisvanguard.org/2026/05/women-detained-jail-lawsuit/" target="_blank" rel="noopener">Davis Vanguard<span class="ar">&#8599;</span></a>
-            </div>
-          </div>
-          <div class="aside">
-            <div class="figure">20</div>
-            <div class="figure-l">Named plaintiffs</div>
-          </div>
-        </article>
-
-        <!-- SANTA BARBARA -->
         <article class="row reveal">
           <div class="when">May 13, 2026<span class="yr">Complaint filed</span></div>
           <div class="body">
-            <span class="cat">Institutional Abuse · Active litigation</span>
+            <span class="cat">Institutional Abuse</span>
             <h4>Family sues Santa Barbara Unified over alleged abuse of a special-education student</h4>
-            <div class="case">Doe v. Santa Barbara Unified School District · Santa Barbara County Superior Court</div>
+            <div class="case">Doe v. Santa Barbara Unified School District &middot; Santa Barbara County Superior Court</div>
             <p class="dek">The complaint alleges three former Dos Pueblos paraeducators abused a student with developmental disabilities during one-on-one hygiene care. A second former employee of the same school was arrested for child sex crimes the same week. The district calls the suit meritless.</p>
             <p class="by">Attorneys <b>Steven A. Kronenberg</b> and <b>Anthony L. Label</b>, with <b>Bryan Ceglio</b></p>
             <div class="outlets">
@@ -565,8 +535,13 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
               <a class="outlet" href="https://www.newspress.com/2026/05/18/family-sues-santa-barbara-unified-school-district-alleging-dos-pueblos-employees-sexually-abused-son/" target="_blank" rel="noopener">Santa Barbara News-Press<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.edhat.com/news/family-sues-santa-barbara-unified-alleging-special-needs-student-was-sexually-abused-at-dos-pueblos-high/" target="_blank" rel="noopener">Edhat<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.noozhawk.com/lawsuit-alleges-special-needs-student-abused-by-dos-pueblos-high-employees/" target="_blank" rel="noopener">Noozhawk<span class="ar">&#8599;</span></a>
+              <a class="outlet firm" href="https://www.veenfirm.com/doe-vs-santa-barbara-unified/" target="_blank" rel="noopener">Coverage roundup<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.accessnewswire.com/newsroom/en/business-and-professional-services/santa-barbara-schools-sexual-assault-complaint-by-veen-firm-1167060" target="_blank" rel="noopener">ACCESS Newswire<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.morningstar.com/news/accesswire/1167060msn/santa-barbara-schools-sexual-assault-complaint-by-veen-firm" target="_blank" rel="noopener">Morningstar<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://finance.yahoo.com/sectors/healthcare/articles/santa-barbara-schools-sexual-assault-060000692.html" target="_blank" rel="noopener">Yahoo Finance<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.theglobeandmail.com/investing/markets/markets-news/ACCESS%20Newswire/1988164/santa-barbara-schools-sexual-assault-complaint-by-veen-firm/" target="_blank" rel="noopener">The Globe and Mail<span class="ar">&#8599;</span></a>
             </div>
+            <p class="synth">Carried by six additional outlets through the ACCESS Newswire syndication network.</p>
           </div>
           <div class="aside">
             <div class="figure">8</div>
@@ -575,13 +550,61 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           </div>
         </article>
 
-        <!-- BOTANIC -->
         <article class="row reveal">
-          <div class="when">Oct 20, 2025<span class="yr">Final approval</span></div>
+          <div class="when">March 17, 2026<span class="yr">Complaint filed</span></div>
+          <div class="body">
+            <span class="cat">Product Liability</span>
+            <h4>Sole survivor of the Piedmont Cybertruck crash sues Tesla</h4>
+            <div class="case">Miller v. Tesla, Inc. &middot; Alameda County Superior Court, No. 25CV135984</div>
+            <p class="dek">The complaint alleges no exterior door handles, electronic buttons that failed after impact, and reinforced glass that kept a rescuer out, trapping four college students in a burning vehicle.</p>
+            <p class="by">Attorneys <b>Annie Wu</b> and <b>Anthony L. Label</b></p>
+            <div class="outlets">
+              <a class="outlet firm" href="https://www.veenfirm.com/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.bloomberg.com/features/2025-tesla-dangerous-doors/" target="_blank" rel="noopener">Bloomberg<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.theguardian.com/technology/2026/mar/18/tesla-cybertruck-crashes-battery-fires" target="_blank" rel="noopener">The Guardian<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.msn.com/en-us/money/other/tesla-is-sued-by-survivor-of-deadly-california-cybertruck-crash/ar-AA1YQIyJ" target="_blank" rel="noopener">MSN<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://autos.yahoo.com/safety-and-recalls/articles/survivor-deadly-cybertruck-crash-bay-100000830.html" target="_blank" rel="noopener">Yahoo<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://autos.yahoo.com/safety-and-recalls/articles/only-survivor-cybertruck-crash-killed-151550859.html" target="_blank" rel="noopener">Yahoo (follow-up)<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.dailymail.co.uk/news/article-15657179/survivor-lawsuit-piedmont-college-student-tesla-cybertruck-crash.html" target="_blank" rel="noopener">Daily Mail<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.aol.com/news/sole-survivor-piedmont-cybertruck-crash-050335781.html" target="_blank" rel="noopener">AOL<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.aol.com/articles/teslas-electronic-door-system-prevented-123000507.html" target="_blank" rel="noopener">PEOPLE<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.sfchronicle.com/bayarea/article/piedmont-cybertruck-crash-lawsuit-22082164.php" target="_blank" rel="noopener">SF Chronicle<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.cbsnews.com/sanfrancisco/news/cybertruck-fatal-crash-piedmont-california-survivor-sues-automaker/" target="_blank" rel="noopener">CBS Bay Area<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.nbcbayarea.com/news/local/piedmont-cybertruck-crash-tesla-lawsuit/4053492/" target="_blank" rel="noopener">NBC Bay Area<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/post/sole-survivor-fiery-2024-piedmont-cybertruck-crash-files-lawsuit-tesla/18727733/" target="_blank" rel="noopener">ABC7<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.ktvu.com/news/sole-survivor-piedmont-cybertruck-crash-latest-sue-tesla-over-door-design" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.mercurynews.com/2026/03/17/sole-survivor-cybertruck-crash-piedmont-sues-tesla-door-handles/" target="_blank" rel="noopener">Mercury News<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.eastbaytimes.com/2026/03/17/sole-survivor-cybertruck-crash-piedmont-sues-tesla-door-handles/" target="_blank" rel="noopener">East Bay Times<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.kron4.com/news/bay-area/sole-survivor-of-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">KRON4<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://sfstandard.com/2026/03/17/jordan-miller-sues-tesla-piedmont-crash/" target="_blank" rel="noopener">SF Standard<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://sfist.com/2026/03/18/piedmont-cybertruck-crash-survivor-files-lawsuit-against-tesla-over-faulty-door-locks/" target="_blank" rel="noopener">SFist<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://localnewsmatters.org/2026/03/24/piedmont-cybertruck-crash-third-lawsuit-tesla-design-flaw/" target="_blank" rel="noopener">Local News Matters<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://natlawreview.com/press-releases/sole-survivor-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla" target="_blank" rel="noopener">National Law Review<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.claimsjournal.com/news/national/2026/03/19/336353.htm" target="_blank" rel="noopener">Claims Journal<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.insurancejournal.com/news/national/2026/03/19/862499.htm" target="_blank" rel="noopener">Insurance Journal<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.autosafety.org/inside-the-fiery-deadly-crashes-involving-the-tesla-cybertruck/" target="_blank" rel="noopener">Center for Auto Safety<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://piedmontexedra.com/2026/03/cybertruck-crash-survivor-updates-lawsuit" target="_blank" rel="noopener">Piedmont Exedra<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://apnews.com/press-release/ein-presswire-newsmatics/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla-a88a77a9f4c60c74256685cbb88d07cd" target="_blank" rel="noopener">AP News<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.desmoinesregister.com/press-release/story/48960/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">Des Moines Register<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla" target="_blank" rel="noopener">EIN Presswire<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://lawbrothers.com/news/sole-survivor-of-fiery-cybertruck-crash-in-piedmont-sues-tesla-over-lack-of-door-handles/" target="_blank" rel="noopener">Law Brothers<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://lifestyle.kotaradio.com/story/119576/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla/" target="_blank" rel="noopener">KOTA Radio<span class="ar">&#8599;</span></a>
+            </div>
+            <p class="synth">Roughly 120 additional regional and national sites carried the filing through the AP and EIN Presswire syndication network.</p>
+          </div>
+          <div class="aside">
+            <div class="figure">130<span class="u">+</span></div>
+            <div class="figure-l">Media hits</div>
+            <div class="pr"><a class="tlink" href="#pr-tesla">Press release</a></div>
+          </div>
+        </article>
+
+        <article class="row reveal">
+          <div class="when">October 20, 2025<span class="yr">Final approval</span></div>
           <div class="body">
             <span class="cat">Consumer Class Action</span>
             <h4>Botanic Tonics settles the &ldquo;Feel Free&rdquo; kratom class action for $8.75 million</h4>
-            <div class="case">Torres v. Botanic Tonics, LLC · U.S. District Court, Northern District of California</div>
+            <div class="case">Torres v. Botanic Tonics, LLC &middot; U.S. District Court, Northern District of California</div>
             <p class="dek">The suit alleged Botanic Tonics sold its Feel Free shot to people in recovery as a safe alternative to alcohol while hiding that its main ingredient was kratom. The settlement forced an addiction warning onto the label.</p>
             <p class="by">Attorneys <b>Anthony L. Label</b>, <b>Theo J. Emison</b> and <b>Steven A. Kronenberg</b></p>
             <div class="outlets">
@@ -590,6 +613,9 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
               <a class="outlet" href="https://www.cbsnews.com/news/kratom-drink-feel-free-botanic-tonic-addiction/" target="_blank" rel="noopener">CBS News<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.bevnet.com/news/2023/class-action-alleges-feel-free-7-eleven-misled-consumers-about-addiction-risk" target="_blank" rel="noopener">BevNET<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.classaction.org/news/8.75-million-botanic-tonics-settlement-reached-in-feel-free-kratom-lawsuit" target="_blank" rel="noopener">ClassAction.org<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://topclassactions.com/lawsuit-settlements/closed-settlements/8-75m-botanic-tonics-ingredients-class-action-settlement/" target="_blank" rel="noopener">Top Class Actions: settlement<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://topclassactions.com/lawsuit-settlements/consumer-products/beverages/botanic-tonics-class-action-claims-feel-free-drink-falsely-advertised-as-non-addictive/" target="_blank" rel="noopener">Top Class Actions: filing<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.classaction.org/media/torres-v-botanic-tonics-llc-et-al.pdf" target="_blank" rel="noopener">Complaint (PDF)<span class="ar">&#8599;</span></a>
             </div>
           </div>
           <div class="aside">
@@ -598,23 +624,35 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           </div>
         </article>
 
-        <!-- WHITEHEAD -->
         <article class="row reveal">
-          <div class="when">May &amp; Sep 2025<span class="yr">Ruling &amp; settlement</span></div>
+          <div class="when">May &amp; September 2025<span class="yr">Ruling &amp; settlement</span></div>
           <div class="body">
-            <span class="cat">Appellate · Dangerous Roads</span>
+            <span class="cat">Dangerous Roads</span>
             <h4>A 7-0 California Supreme Court win, then a record $7 million from Oakland</h4>
-            <div class="case">Whitehead v. City of Oakland · California Supreme Court, No. S284303</div>
+            <div class="case">Whitehead v. City of Oakland &middot; California Supreme Court, No. S284303</div>
             <p class="dek">A unanimous ruling that a city cannot use a private waiver to escape liability for unsafe roads. Oakland then paid brain-injured cyclist Ty Whitehead $7 million, its largest dangerous-condition settlement.</p>
             <p class="by">Attorneys <b>Anthony L. Label</b> and <b>Steven A. Kronenberg</b></p>
             <div class="outlets">
               <a class="outlet firm" href="https://www.veenfirm.com/veen-firm-wins-landmark-case-for-client-in-california-supreme-court/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
+              <a class="outlet firm" href="https://www.veenfirm.com/sf-chronicle-covers-veen-firms-california-supreme-court-landmark-victory/" target="_blank" rel="noopener">Blog: SF Chronicle roundup<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://law.justia.com/cases/california/supreme-court/2025/s284303.html" target="_blank" rel="noopener">Supreme Court opinion<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.sfchronicle.com/politics/article/cyclist-oakland-injured-lawsuit-20305730.php" target="_blank" rel="noopener">SF Chronicle<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://oaklandside.org/2025/09/19/oakland-settles-for-7-million-with-injured-cyclist/" target="_blank" rel="noopener">The Oaklandside<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.ktvu.com/news/ty-whitehead-oakland-pays-bicyclist-7m-record-pothole-settlement" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://www.yahoo.com/news/articles/oakland-pay-bicyclist-7m-record-193425930.html" target="_blank" rel="noopener">Yahoo News<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://bayareabicyclelaw.com/landmark-ruling-in-california-supreme-court-cycling-case/" target="_blank" rel="noopener">Bay Area Bicycle Law<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html" target="_blank" rel="noopener">PR Newswire<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.morningstar.com/news/pr-newswire/20250922ph78165/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions" target="_blank" rel="noopener">Morningstar<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.webull.com/news/13555333967336448" target="_blank" rel="noopener">Webull<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.benzinga.com/pressreleases/25/09/n47786288/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-condi" target="_blank" rel="noopener">Benzinga<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://newsblaze.com/pr-newswire/?rkey=20250922PH78165&amp;filter=12684" target="_blank" rel="noopener">NewsBlaze<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html" target="_blank" rel="noopener">WV News<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html" target="_blank" rel="noopener">The Malaysian Reserve<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html" target="_blank" rel="noopener">Manhattan Week<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html" target="_blank" rel="noopener">Eastern Progress<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html" target="_blank" rel="noopener">Jornal Web Digital (Brazil)<span class="ar">&#8599;</span></a>
             </div>
+            <p class="synth">PR Newswire&rsquo;s distribution report for this release documented 125 total placements, including pickup by 45 AP News affiliate outlets.</p>
           </div>
           <div class="aside">
             <div class="figure">$7<span class="u">M</span></div>
@@ -623,20 +661,23 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           </div>
         </article>
 
-        <!-- POLICE BRUTALITY -->
         <article class="row reveal">
-          <div class="when">Aug 2025<span class="yr">Settlement</span></div>
+          <div class="when">August 2025<span class="yr">Settlement</span></div>
           <div class="body">
-            <span class="cat">Civil Rights · Police Misconduct</span>
+            <span class="cat">Police Misconduct</span>
             <h4>San Rafael pays $999,000 over a violent arrest in the Canal neighborhood</h4>
-            <div class="case">Jimenez Lopez v. City of San Rafael · Marin County</div>
-            <p class="dek">Landscaper Julio Jimenez Lopez was taken down during an open-container stop in 2022 and left with a broken nose, a concussion, and a torn shoulder. The city agreed to pay $999,000.</p>
+            <div class="case">Jimenez Lopez v. City of San Rafael &middot; Marin County</div>
+            <p class="dek">Landscaper Julio Jimenez Lopez was taken down during an open-container stop in 2022 and left with a broken nose, a concussion, and a torn shoulder. The city agreed to pay $999,000; a jury acquitted one of the two officers at trial two months later, and the DA dropped the case against the other.</p>
             <p class="by">Attorneys <b>Anthony L. Label</b> and <b>Theo J. Emison</b></p>
             <div class="outlets">
               <a class="outlet firm" href="https://www.veenfirm.com/veen-firm-seeks-justice-for-victim-of-police-brutality1/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://pacificsun.com/san-rafael-cop-not-guilty/" target="_blank" rel="noopener">Pacific Sun<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://pacificsun.com/da-accepts-judges-decision-to-drop-case-against-ex-cop/" target="_blank" rel="noopener">Pacific Sun (case dropped)<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://localnewsmatters.org/2025/10/22/san-rafael-officer-involved-in-violent-canal-neighborhood-arrest-acquitted-by-jury/" target="_blank" rel="noopener">Local News Matters<span class="ar">&#8599;</span></a>
               <a class="outlet" href="https://patch.com/california/sanrafael/city-will-pay-999k-man-injured-violent-arrest-marin-county-town" target="_blank" rel="noopener">Patch<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://patch.com/california/sanrafael/officer-involved-violent-san-rafael-arrest-acquitted-jury" target="_blank" rel="noopener">Patch (acquittal)<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.ktvu.com/news/san-rafael-police-officer-acquitted-assault-following-open-beer-container-incident" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://edition.pagesuite.com/tribune/article_popover.aspx?guid=4ac51fa5-f406-4ff6-864c-1e606de53a49" target="_blank" rel="noopener">Marin Independent Journal<span class="ar">&#8599;</span></a>
             </div>
           </div>
           <div class="aside">
@@ -645,19 +686,8 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           </div>
         </article>
 
-      </div>
-    </div>
-
-    <!-- ERA: 2020-2024 -->
-    <div class="era">
-      <div class="era-label reveal">
-        <h3>From the record</h3>
-        <span class="sub">2020 to 2024</span>
-      </div>
-      <div class="rows">
-
         <article class="row reveal">
-          <div class="when">Dec 2023<span class="yr">Settlement</span></div>
+          <div class="when">December 2023<span class="yr">Settlement</span></div>
           <div class="body">
             <span class="cat">Dangerous Roads</span>
             <h4>Oakland pays cyclist Bruno VanSchoote $6.5 million for a dangerous roadway</h4>
@@ -665,7 +695,8 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
             <p class="dek">A pavement ridge on MacArthur Boulevard threw VanSchoote from his bike and fractured his spine. The City Council approved $6.5 million, at the time the largest dangerous-road settlement in Oakland history.</p>
             <p class="by">Attorneys <b>Steven A. Kronenberg</b> and <b>Anthony L. Label</b></p>
             <div class="outlets">
-              <a class="outlet" href="https://oaklandside.org/2024/01/18/another-bicycle-crash-another-6-5m-lawsuit-settlement-for-oakland/" target="_blank" rel="noopener">The Oaklandside<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://oaklandside.org/2023/12/06/oakland-lawsuit-settlement-6-million-bike-rider-macarthur-boulevard/" target="_blank" rel="noopener">The Oaklandside<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://oaklandside.org/2023/12/12/injuries-caused-by-dangerous-roads-oakland-lawsuit-settlements/" target="_blank" rel="noopener">The Oaklandside: $35M in 10 years<span class="ar">&#8599;</span></a>
             </div>
           </div>
           <div class="aside"><div class="figure">$6.5<span class="u">M</span></div><div class="figure-l">Settlement</div></div>
@@ -686,59 +717,115 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           <div class="aside"><div class="figure">$4.5<span class="u">M</span></div><div class="figure-l">Settlement</div></div>
         </article>
 
+        <article class="row reveal">
+          <div class="when">2022&ndash;2023<span class="yr">ABC7 I-Team investigation</span></div>
+          <div class="body">
+            <span class="cat">Police Misconduct</span>
+            <h4>ABC7&rsquo;s I-Team follows a violent San Rafael arrest for three years, to federal charges</h4>
+            <div class="case">Jimenez Lopez v. City of San Rafael &middot; Marin County</div>
+            <p class="dek">In September 2022, ABC7&rsquo;s I-Team broke bodycam footage of officers taking down landscaper Julio Jimenez Lopez during an open-container stop, leading to leave, a criminal investigation, and a claim against the city. In May 2023 Jimenez Lopez went public and filed a federal civil-rights suit; that August, prosecutors charged the two officers with excessive force. The city&rsquo;s $999,000 settlement and one officer&rsquo;s acquittal followed in 2025.</p>
+            <p class="by">Attorneys <b>Anthony L. Label</b> and <b>Theo J. Emison</b></p>
+            <div class="outlets">
+              <a class="outlet" href="https://abc7news.com/san-rafael-police-use-of-force-bodycam-video-officer-daisy-mazariegos-brandon-nail/12187885/" target="_blank" rel="noopener">ABC7: Bodycam video<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/post/san-rafael-police-use-of-force-bodycam-video-officers-on-leave-protest/12191615/" target="_blank" rel="noopener">ABC7: Officers on leave<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/san-rafael-police-use-of-force-takedown-bodycam-video-gardener-mateo-officer-daisy-mazariegos/12207118/" target="_blank" rel="noopener">ABC7: City Council reaction<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/san-rafael-police-use-of-force-criminal-investigation-takedown-bodycam-video-gardener-mateo/12210320/" target="_blank" rel="noopener">ABC7: Criminal investigation<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/post/san-rafael-police-use-of-force-gardener-files-claim-takedown-body-cam-video/12742823/" target="_blank" rel="noopener">ABC7: Claim filed<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/gardener-speaks-out-san-rafael-police-use-of-force-beer-beating-mateo/13215522/" target="_blank" rel="noopener">ABC7: Gardener speaks out<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/san-rafael-police-beating-gardener-julio-lopez-files-lawsuit-against-over-beer/13541795/" target="_blank" rel="noopener">ABC7: Federal lawsuit filed<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://abc7news.com/post/san-rafael-police-beating-gardener-julio-lopez-officers-charged-excessive-force/13692032/" target="_blank" rel="noopener">ABC7: Officers charged<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.nbcbayarea.com/news/local/north-bay/lawsuit-filed-violent-police-confrontation-san-rafael/3279818/" target="_blank" rel="noopener">NBC Bay Area<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://pacificsun.com/san-rafaels-secrets-keep-public-in-the-dark/" target="_blank" rel="noopener">Pacific Sun<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://pacificsun.com/san-rafael-adds-insult-to-injury-in-police-use-of-force-case/" target="_blank" rel="noopener">Pacific Sun (follow-up)<span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="aside"><div class="figure">8</div><div class="figure-l">ABC7 I-Team reports</div></div>
+        </article>
+
+        <article class="row reveal">
+          <div class="when">2017<span class="yr">Recognition</span></div>
+          <div class="body">
+            <span class="cat">Workplace Injury</span>
+            <h4>A $12 million lineman settlement is featured among California&rsquo;s top verdicts</h4>
+            <div class="case">Featured in TopVerdict.com&rsquo;s Top 50 Settlements in California and the SF Chronicle&rsquo;s Northern California Verdicts section</div>
+            <p class="dek">The firm&rsquo;s $12 million settlement for an injured lineman was recognized both by TopVerdict.com and by the San Francisco Chronicle&rsquo;s roundup of major regional verdicts.</p>
+            <div class="outlets">
+              <a class="outlet firm" href="https://www.veenfirm.com/the-veen-firm-s-case-featured-in-topverdict-com-s-top-50-settlements-in-california/" target="_blank" rel="noopener">TopVerdict feature<span class="ar">&#8599;</span></a>
+              <a class="outlet firm" href="https://www.veenfirm.com/the-veen-firm-case-featured-in-san-francisco-chronicle-s-northern-california-verdicts-section/" target="_blank" rel="noopener">SF Chronicle Verdicts<span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="aside"><div class="figure">$12<span class="u">M</span></div><div class="figure-l">Settlement</div></div>
+        </article>
+
+        <article class="row reveal">
+          <div class="when">2016&ndash;2017<span class="yr">Jury verdict</span></div>
+          <div class="body">
+            <span class="cat">Workplace Injury</span>
+            <h4>$14.3 million jury verdict for a laborer electrocuted on a construction site</h4>
+            <div class="case">Fresno County Superior Court</div>
+            <p class="dek">A Fresno County jury awarded $14.3 million to a construction laborer electrocuted on the job.</p>
+            <p class="by">Attorneys <b>Craig Peters</b> and <b>S. Anoush Lancaster</b></p>
+            <div class="outlets">
+              <a class="outlet" href="https://juryverdictalert.com/construction-site-accident/submitted-item-17" target="_blank" rel="noopener">Jury Verdict Alert<span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="aside"><div class="figure">$14.3<span class="u">M</span></div><div class="figure-l">Jury verdict</div></div>
+        </article>
+
+        <article class="row reveal">
+          <div class="when">2016<span class="yr">Claim filed</span></div>
+          <div class="body">
+            <span class="cat">Premises Liability</span>
+            <h4>A dangerously pruned tree branch falls in Washington Square Park, paralyzing a woman</h4>
+            <div class="case">Zhou v. City and County of San Francisco</div>
+            <p class="dek">Emma Zhou was paralyzed when a topped pine branch fell on her in a San Francisco park. The firm filed a claim against the city over the tree&rsquo;s maintenance.</p>
+            <p class="by">Attorneys <b>Jeremy Cloyd</b> and <b>Andje Medina</b></p>
+            <div class="outlets">
+              <a class="outlet firm" href="https://www.veenfirm.com/branch-falls-from-dangerously-pruned-tree-paralyzing-woman-the-veen-firm-file-claim-against-city-and-county-of-san-francisco/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.ktvu.com/news/woman-paralyzed-by-falling-tree-branch-files-claim-against-san-francisco" target="_blank" rel="noopener">KTVU FOX 2<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.cbsnews.com/sanfrancisco/news/woman-paralyzed-by-falling-tree-branch-in-sf-park-files-claim-against-city/" target="_blank" rel="noopener">CBS San Francisco<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.kron4.com/news/video-woman-paralyzed-by-falling-tree-branch-at-park-files-legal-claim-against-san-francisco/" target="_blank" rel="noopener">KRON4<span class="ar">&#8599;</span></a>
+              <a class="outlet" href="https://www.thesfnews.com/woman-sues-san-francisco-paralysis/28542" target="_blank" rel="noopener">The SF News<span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="aside"><div class="figure-l">Premises claim</div></div>
+        </article>
+
+        <article class="row reveal">
+          <div class="when">2015<span class="yr">Jury verdict</span></div>
+          <div class="body">
+            <span class="cat">Wrongful Death</span>
+            <h4>Jury finds a delivery-truck driver solely responsible for a San Francisco bicyclist&rsquo;s death</h4>
+            <div class="case">Le Moullac / Jewitt v. Daylight Foods</div>
+            <p class="dek">A San Francisco jury found the driver of a Daylight Foods delivery truck 100 percent at fault for striking and killing a cyclist, awarding $4 million to her parents.</p>
+            <p class="by">Attorney <b>Anthony L. Label</b></p>
+            <div class="outlets">
+              <a class="outlet firm" href="https://www.veenfirm.com/jury-finds-delivery-truck-driver-solely-responsible-for-san-francisco-bicyclist-s-death/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="aside"><div class="figure">$4<span class="u">M</span></div><div class="figure-l">Jury verdict</div></div>
+        </article>
+
+        <article class="row reveal">
+          <div class="when">2015<span class="yr">Settlement approved</span></div>
+          <div class="body">
+            <span class="cat">Class Action</span>
+            <h4>Nationwide class action settles over Mercedes-Benz Sprinter van AC failures</h4>
+            <div class="case">Class action re: Mercedes-Benz Sprinter van roof/AC units</div>
+            <p class="dek">A nationwide class action settlement, with up to $10 million in potential value, resolved claims over leaky roofs and failed air-conditioning units in Mercedes-Benz Sprinter vans.</p>
+            <p class="by">Attorneys <b>Anthony L. Label</b> and <b>Steven A. Kronenberg</b>, with Chavez &amp; Gertler LLP</p>
+            <div class="outlets">
+              <a class="outlet firm" href="https://www.veenfirm.com/anthony-label-and-steven-kronenberg-obtain-10-million-potential-value-nationwide-class-action-settlement-in-mercedes-benz-sprinter-van-leaky-roof-ac-units/" target="_blank" rel="noopener">Blog post<span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="aside"><div class="figure">$10<span class="u">M</span></div><div class="figure-l">Potential value</div></div>
+        </article>
+
       </div>
-    </div>
   </div>
 </section>
 
 <!-- ============ PRESS RELEASES ============ -->
-<!-- ============ COVERAGE MAP ============ -->
-<section id="map" class="sec ink">
-  <style>
-    #map h2{color:#fff;font-size:clamp(2rem,4.4vw,3.1rem);}
-    #map .mhead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:30px;}
-    #map .mhead .eyebrow.d{display:block;margin-bottom:14px;}
-    #map .mhead p{color:var(--body-on-dark);font-size:15px;max-width:44ch;line-height:1.6;}
-    #map .map-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:14px;overflow:hidden;margin-bottom:24px;}
-    #map .map-stats .cell{background:var(--ink-2);padding:22px 24px;}
-    #map .map-stats .n{color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;}
-    #map .map-stats .l{color:var(--muted-on-dark);font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin-top:9px;line-height:1.4;}
-    #map .map-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-    #map .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--line-dark-2);background:transparent;color:var(--body-on-dark);font-family:var(--sans);font-weight:600;font-size:12.5px;cursor:pointer;transition:opacity .2s,border-color .2s,color .2s;}
-    #map .chip .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-    #map .chip[aria-pressed="false"]{opacity:.38;}
-    #map .chip:hover{border-color:#fff;color:#fff;}
-    #map .map-frame{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line-dark-2);box-shadow:0 34px 70px -34px rgba(0,0,0,.65);}
-    #veen-map{height:600px;width:100%;background:#e8eaed;}
-    #map .map-note{color:var(--muted-on-dark);font-size:12.5px;margin-top:18px;line-height:1.65;max-width:90ch;}
-    #map .map-note b{color:var(--body-on-dark);font-weight:600;}
-    .leaflet-popup-content{font-family:var(--sans);font-size:13px;color:var(--ink-90);margin:12px 14px;line-height:1.5;}
-    .leaflet-popup-content b{font-weight:600;color:var(--ink-90);}
-    .leaflet-popup-content a{color:var(--wine);font-weight:600;}
-    .veen-pop .cs{display:inline-block;padding:2px 9px;border-radius:999px;font-size:10.5px;font-weight:600;color:#fff;margin:5px 0;letter-spacing:.01em;}
-    .leaflet-container{font-family:var(--sans);}
-    @media(max-width:760px){#map .map-stats{grid-template-columns:repeat(2,1fr);}#veen-map{height:460px;}}
-  </style>
-  <div class="wrap">
-    <div class="mhead">
-      <div>
-        <span class="eyebrow d">The Footprint</span>
-        <h2>Where the coverage landed</h2>
-      </div>
-      <p>Every located outlet that reported on a Veen Firm matter, mapped. Zoom into the Bay Area cluster; pan out for the national and global wire. Tap a marker for the outlet and link.</p>
-    </div>
-    <div class="map-stats">
-      <div class="cell"><div class="n" id="st-outlets">&ndash;</div><div class="l">Located editorial outlets</div></div>
-      <div class="cell"><div class="n" id="st-wire">&ndash;</div><div class="l">Wire pickups mapped</div></div>
-      <div class="cell"><div class="n">~1.5B</div><div class="l">Combined potential audience</div></div>
-      <div class="cell"><div class="n">5</div><div class="l">Countries &middot; 3 newswires</div></div>
-    </div>
-    <div class="map-filters" id="map-filters" aria-label="Filter coverage by case"></div>
-    <div class="map-frame"><div id="veen-map"></div></div>
-    <p class="map-note"><b>Bigger, colored markers</b> are editorial outlets that reported on a matter, placed at their real location. <b>Small grey dots</b> are newswire syndication pickups (EIN Presswire, PR Newswire, AccessNewswire), clustered at each distributor&rsquo;s hub since these republish domains have no single physical location. Tesla filing reach &asymp; 1.4&nbsp;billion; Whitehead PR Newswire &asymp; 141&nbsp;million across 125 placements. Tap any dot for the outlet and link.</p>
-  </div>
-</section>
-
 <section id="releases" class="sec plat">
   <div class="wrap">
     <div class="sec-head">
@@ -903,6 +990,7 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
     </div>
     <div class="results">
       <div class="res reveal"><div class="amt">$36<span class="u">M</span></div><div class="desc"><span class="ct">Will Contest</span><span class="tx">Relatives of a reclusive millionaire successfully challenge the authenticity of a will.</span></div></div>
+      <div class="res reveal"><div class="amt">$29<span class="u">M</span></div><div class="desc"><span class="ct">Medical Malpractice</span><span class="tx">Combined catastrophic-injury medical-malpractice resolution across matters, including roughly $17 million against the Regents of the University of California.</span></div></div>
       <div class="res reveal"><div class="amt">$18.5<span class="u">M</span></div><div class="desc"><span class="ct">Wrongful Death</span><span class="tx">Primary wage-earner killed in a vehicle crash, leaving a widow with five children.</span></div></div>
       <div class="res reveal"><div class="amt">$15<span class="u">M</span></div><div class="desc"><span class="ct">Workplace Injury</span><span class="tx">Electrical contractor suffered third-degree burns from an arc flash on an industrial site.</span></div></div>
       <div class="res reveal"><div class="amt">$12.5<span class="u">M</span></div><div class="desc"><span class="ct">Motor Vehicle</span><span class="tx">Work-vehicle crash caused catastrophic brain injury; the defendant allegedly failed to train employees.</span></div></div>
@@ -928,6 +1016,11 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           <span>Catastrophic injuries</span><span>Wrongful death</span><span>Defective products</span>
           <span>Civil rights</span><span>Medical malpractice</span><span>Workplace injuries</span>
           <span>Public entity liability</span><span>Premises liability</span>
+        </div>
+        <div class="honors">
+          <a href="https://www.veenfirm.com/william-l-veen-named-as-a-recipient-of-the-caoc-2018-robert-e-cartwright-sr-award/" target="_blank" rel="noopener">CAOC Robert E. Cartwright, Sr. Award <span>William L. Veen, 2018</span></a>
+          <a href="https://www.veenfirm.com/anthony-label-named-marin-trial-lawyers-association-s-2019-trial-lawyer-of-the-year/" target="_blank" rel="noopener">Marin Trial Lawyer of the Year <span>Anthony L. Label, 2019</span></a>
+          <a href="https://plaintiffmagazine.com/recent-issues/item/using-social-media-to-build-and-protect-your-case" target="_blank" rel="noopener">Plaintiff Magazine bylines <span>Steven A. Kronenberg, 2019&ndash;2021</span></a>
         </div>
       </div>
       <div class="facts">
@@ -1007,144 +1100,20 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
       });
     });
   })();
-  // Press release expand
+  // Generic disclosure toggle (press releases)
   document.querySelectorAll('.toggle').forEach(function(btn){
+    var lbl=btn.querySelector('.lbl');
+    var closedLabel=lbl.textContent;
+    var openLabel=btn.getAttribute('data-open-label')||'Hide full release';
     btn.addEventListener('click',function(){
       var t=document.getElementById(btn.getAttribute('data-target'));
       var open=t.hasAttribute('hidden');
       if(open){t.removeAttribute('hidden');}else{t.setAttribute('hidden','');}
-      btn.querySelector('.lbl').textContent=open?'Hide full release':'Read full release';
+      lbl.textContent=open?openLabel:closedLabel;
       var disc=btn.querySelector('.disc');
       if(disc) disc.style.transform=open?'rotate(180deg)':'none';
     });
   });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script>
-// Coverage map
-(function(){
-  var node=document.getElementById('veen-map'); if(!node) return;
-  if(!window.L){ node.innerHTML='<div style="padding:48px;text-align:center;color:#6b7080;font:600 14px sans-serif">The coverage map needs an internet connection to load.</div>'; return; }
-  var C={
-    tesla:{l:'Miller v. Tesla · Cybertruck',c:'#a3312e'},
-    whitehead:{l:'Whitehead v. Oakland · Supreme Court',c:'#2585a6'},
-    strip:{l:'S.F. jail mass strip search',c:'#c79024'},
-    dospueblos:{l:'Doe v. Santa Barbara Unified',c:'#3f8d5a'},
-    sanrafael:{l:'Lopez v. City of San Rafael',c:'#8a5ea0'},
-    botanic:{l:'Botanic Tonics “Feel Free”',c:'#2f9d94'},
-    oakbike:{l:'VanSchoote v. Oakland · cyclist',c:'#a87a44'}
-  };
-  var WIRECOL='#9aa0ad';
-  var HUBS={ein:[38.90,-77.04],prn:[40.71,-74.01],access:[35.23,-80.84]};
-  var DIST={ein:'EIN Presswire network',prn:'PR Newswire network',access:'AccessNewswire network'};
-  var D=[
-      {n:'Bloomberg',city:'New York',co:'US',la:40.713,lo:-74.006,k:'tesla',t:1,u:'https://www.bloomberg.com/features/2025-tesla-dangerous-doors/'},
-      {n:'The Guardian',city:'London',co:'UK',la:51.507,lo:-0.128,k:'tesla',t:1,u:'https://www.theguardian.com/technology/2026/mar/18/tesla-cybertruck-crashes-battery-fires'},
-      {n:'MSN',city:'Redmond, WA',co:'US',la:47.674,lo:-122.121,k:'tesla',t:1,u:'https://www.msn.com/en-us/money/other/tesla-is-sued-by-survivor-of-deadly-california-cybertruck-crash/ar-AA1YQIyJ'},
-      {n:'Yahoo Autos',city:'Sunnyvale, CA',co:'US',la:37.369,lo:-122.036,k:'tesla',t:1,u:'https://autos.yahoo.com/safety-and-recalls/articles/survivor-deadly-cybertruck-crash-bay-100000830.html'},
-      {n:'Daily Mail',city:'London',co:'UK',la:51.507,lo:-0.128,k:'tesla',t:2,u:'https://www.dailymail.co.uk/news/article-15657179/survivor-lawsuit-piedmont-college-student-tesla-cybertruck-crash.html'},
-      {n:'AOL',city:'New York',co:'US',la:40.713,lo:-74.006,k:'tesla',t:2,u:'https://www.aol.com/news/sole-survivor-piedmont-cybertruck-crash-050335781.html'},
-      {n:'PEOPLE',city:'New York',co:'US',la:40.713,lo:-74.006,k:'tesla',t:1,u:'https://www.aol.com/articles/teslas-electronic-door-system-prevented-123000507.html'},
-      {n:'SF Chronicle',city:'San Francisco',co:'US',la:37.779,lo:-122.419,k:'tesla',t:1,u:'https://www.sfchronicle.com/bayarea/article/piedmont-cybertruck-crash-lawsuit-22082164.php'},
-      {n:'CBS News Bay Area',city:'San Francisco',co:'US',la:37.775,lo:-122.418,k:'tesla',t:1,u:'https://www.cbsnews.com/sanfrancisco/news/cybertruck-fatal-crash-piedmont-california-survivor-sues-automaker/'},
-      {n:'NBC Bay Area',city:'San Jose, CA',co:'US',la:37.338,lo:-121.886,k:'tesla',t:1,u:'https://www.nbcbayarea.com/news/local/piedmont-cybertruck-crash-tesla-lawsuit/4053492/'},
-      {n:'ABC7 / KGO',city:'San Francisco',co:'US',la:37.783,lo:-122.412,k:'tesla',t:1,u:'https://abc7news.com/post/sole-survivor-fiery-2024-piedmont-cybertruck-crash-files-lawsuit-tesla/18727733/'},
-      {n:'KTVU FOX 2',city:'Oakland, CA',co:'US',la:37.804,lo:-122.271,k:'tesla',t:1,u:'https://www.ktvu.com/news/sole-survivor-piedmont-cybertruck-crash-latest-sue-tesla-over-door-design'},
-      {n:'Mercury News',city:'San Jose, CA',co:'US',la:37.335,lo:-121.889,k:'tesla',t:2,u:'https://www.mercurynews.com/2026/03/17/sole-survivor-cybertruck-crash-piedmont-sues-tesla-door-handles/'},
-      {n:'East Bay Times',city:'Oakland, CA',co:'US',la:37.808,lo:-122.268,k:'tesla',t:2,u:'https://www.eastbaytimes.com/2026/03/17/sole-survivor-cybertruck-crash-piedmont-sues-tesla-door-handles/'},
-      {n:'KRON4',city:'San Francisco',co:'US',la:37.770,lo:-122.466,k:'tesla',t:2,u:'https://www.kron4.com/news/bay-area/sole-survivor-of-piedmont-cybertruck-crash-files-lawsuit-against-tesla/'},
-      {n:'SF Standard',city:'San Francisco',co:'US',la:37.789,lo:-122.401,k:'tesla',t:1,u:'https://sfstandard.com/2026/03/17/jordan-miller-sues-tesla-piedmont-crash/'},
-      {n:'SFist',city:'San Francisco',co:'US',la:37.762,lo:-122.435,k:'tesla',t:2,u:'https://sfist.com/2026/03/18/piedmont-cybertruck-crash-survivor-files-lawsuit-against-tesla-over-faulty-door-locks/'},
-      {n:'Local News Matters',city:'San Francisco',co:'US',la:37.795,lo:-122.394,k:'tesla',t:2,u:'https://localnewsmatters.org/2026/03/24/piedmont-cybertruck-crash-third-lawsuit-tesla-design-flaw/'},
-      {n:'Piedmont Exedra',city:'Piedmont, CA',co:'US',la:37.824,lo:-122.232,k:'tesla',t:3,u:'https://piedmontexedra.com/2026/03/cybertruck-crash-survivor-updates-lawsuit'},
-      {n:'National Law Review',city:'Chicago, IL',co:'US',la:41.878,lo:-87.630,k:'tesla',t:2,u:'https://natlawreview.com/press-releases/sole-survivor-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla'},
-      {n:'Claims Journal',city:'San Diego, CA',co:'US',la:32.716,lo:-117.161,k:'tesla',t:2,u:'https://www.claimsjournal.com/news/national/2026/03/19/336353.htm'},
-      {n:'Insurance Journal',city:'San Diego, CA',co:'US',la:32.709,lo:-117.155,k:'tesla',t:2,u:'https://www.insurancejournal.com/news/national/2026/03/19/862499.htm'},
-      {n:'Center for Auto Safety',city:'Washington, DC',co:'US',la:38.907,lo:-77.037,k:'tesla',t:2,u:'https://www.autosafety.org/inside-the-fiery-deadly-crashes-involving-the-tesla-cybertruck/'},
-      {n:'AP News',city:'New York',co:'US',la:40.713,lo:-74.006,k:'tesla',t:1,u:'https://apnews.com/press-release/ein-presswire-newsmatics/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla-a88a77a9f4c60c74256685cbb88d07cd'},
-      {n:'Law Brothers',city:'Los Angeles, CA',co:'US',la:34.052,lo:-118.244,k:'tesla',t:3,u:'https://lawbrothers.com/news/sole-survivor-of-fiery-cybertruck-crash-in-piedmont-sues-tesla-over-lack-of-door-handles/'},
-      {n:'KOTA Radio',city:'Rapid City, SD',co:'US',la:44.081,lo:-103.231,k:'tesla',t:3,u:'https://lifestyle.kotaradio.com/story/119576/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla/'},
-      {n:'The Oaklandside',city:'Oakland, CA',co:'US',la:37.804,lo:-122.263,k:'whitehead',t:1,u:'https://oaklandside.org/2025/09/19/oakland-settles-for-7-million-with-injured-cyclist/'},
-      {n:'KTVU FOX 2',city:'Oakland, CA',co:'US',la:37.800,lo:-122.276,k:'whitehead',t:1,u:'https://www.ktvu.com/news/ty-whitehead-oakland-pays-bicyclist-7m-record-pothole-settlement'},
-      {n:'Yahoo News',city:'Sunnyvale, CA',co:'US',la:37.372,lo:-122.031,k:'whitehead',t:2,u:'https://www.yahoo.com/news/articles/oakland-pay-bicyclist-7m-record-193425930.html'},
-      {n:'SF Chronicle',city:'San Francisco',co:'US',la:37.776,lo:-122.416,k:'whitehead',t:1,u:'https://www.sfchronicle.com/politics/article/cyclist-oakland-injured-lawsuit-20305730.php'},
-      {n:'Bay Area Bicycle Law',city:'San Francisco',co:'US',la:37.788,lo:-122.408,k:'whitehead',t:3,u:'https://bayareabicyclelaw.com/landmark-ruling-in-california-supreme-court-cycling-case/'},
-      {n:'Justia (opinion)',city:'Mountain View, CA',co:'US',la:37.386,lo:-122.083,k:'whitehead',t:3,u:'https://law.justia.com/cases/california/supreme-court/2025/s284303.html'},
-      {n:'Morningstar',city:'Chicago, IL',co:'US',la:41.881,lo:-87.632,k:'whitehead',t:2,u:'https://www.morningstar.com/news/pr-newswire/20250922ph78165/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions'},
-      {n:'Benzinga',city:'Detroit, MI',co:'US',la:42.331,lo:-83.046,k:'whitehead',t:2,u:'https://www.benzinga.com/pressreleases/25/09/n47786288/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-condi'},
-      {n:'NewsBlaze',city:'Folsom, CA',co:'US',la:38.678,lo:-121.176,k:'whitehead',t:3,u:'https://newsblaze.com/pr-newswire/?rkey=20250922PH78165&filter=12684'},
-      {n:'WV News (PR Newswire)',city:'Clarksburg, WV',co:'US',la:39.281,lo:-80.345,k:'whitehead',t:3,u:PRN},
-      {n:'Eastern Progress (PR Newswire)',city:'Richmond, KY',co:'US',la:37.748,lo:-84.294,k:'whitehead',t:3,u:PRN},
-      {n:'Manhattan Week (PR Newswire)',city:'New York',co:'US',la:40.713,lo:-74.006,k:'whitehead',t:3,u:PRN},
-      {n:'The Malaysian Reserve (PR Newswire)',city:'Kuala Lumpur',co:'Malaysia',la:3.139,lo:101.687,k:'whitehead',t:3,u:PRN},
-      {n:'Jornal Web Digital (PR Newswire)',city:'São Paulo',co:'Brazil',la:-23.55,lo:-46.633,k:'whitehead',t:3,u:PRN},
-      {n:'KQED',city:'San Francisco',co:'US',la:37.767,lo:-122.407,k:'strip',t:1,u:'https://www.kqed.org/news/12084968/20-women-sue-sf-sheriffs-office-over-alleged-mass-strip-search'},
-      {n:'Mission Local',city:'San Francisco',co:'US',la:37.759,lo:-122.415,k:'strip',t:2,u:'https://missionlocal.org/2026/05/sf-jail-women-mass-strip-search-lawsuit/'},
-      {n:'SF Standard',city:'San Francisco',co:'US',la:37.791,lo:-122.397,k:'strip',t:1,u:'https://sfstandard.com/2026/05/22/san-francisco-sheriff-sued-women-strip-search/'},
-      {n:'SFGATE',city:'San Francisco',co:'US',la:37.784,lo:-122.404,k:'strip',t:1,u:'https://www.sfgate.com/news/bayarea/article/sf-civil-rights-activists-rally-to-demand-22272922.php'},
-      {n:'KTVU FOX 2',city:'Oakland, CA',co:'US',la:37.796,lo:-122.279,k:'strip',t:1,u:'https://www.ktvu.com/news/women-file-class-action-lawsuit-over-sf-jail-strip-searches'},
-      {n:'Davis Vanguard',city:'Davis, CA',co:'US',la:38.545,lo:-121.741,k:'strip',t:2,u:'https://davisvanguard.org/2026/05/women-detained-jail-lawsuit/'},
-      {n:'National Law Review',city:'Chicago, IL',co:'US',la:41.870,lo:-87.638,k:'strip',t:2,u:'https://natlawreview.com/press-releases/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded'},
-      {n:'New York Post (via Yahoo)',city:'New York',co:'US',la:40.706,lo:-74.009,k:'strip',t:2,u:'https://www.yahoo.com/news/us/articles/20-women-sue-sf-sheriff-022907295.html'},
-      {n:'SF Chronicle',city:'San Francisco',co:'US',la:37.773,lo:-122.421,k:'strip',t:1,u:'https://www.sfchronicle.com/politics/article/sf-jail-strip-search-lawsuit-22272504.php'},
-      {n:'AP News',city:'New York',co:'US',la:40.720,lo:-74.000,k:'strip',t:1,u:'https://apnews.com/press-release/ein-presswire-newsmatics/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail-ea2c680fe40522a937264a1afa26fcf5'},
-      {n:'Santa Barbara Independent',city:'Santa Barbara, CA',co:'US',la:34.421,lo:-119.698,k:'dospueblos',t:1,u:'https://www.independent.com/2026/05/22/lawsuit-filed-by-mother-of-special-needs-student-alleges-son-was-sexually-abused-at-dos-pueblos-high/'},
-      {n:'Noozhawk',city:'Santa Barbara, CA',co:'US',la:34.425,lo:-119.703,k:'dospueblos',t:2,u:'https://www.noozhawk.com/lawsuit-alleges-special-needs-student-abused-by-dos-pueblos-high-employees/'},
-      {n:'Edhat',city:'Santa Barbara, CA',co:'US',la:34.417,lo:-119.690,k:'dospueblos',t:3,u:'https://www.edhat.com/news/family-sues-santa-barbara-unified-alleging-special-needs-student-was-sexually-abused-at-dos-pueblos-high/'},
-      {n:'Santa Barbara News-Press',city:'Santa Barbara, CA',co:'US',la:34.414,lo:-119.688,k:'dospueblos',t:2,u:'https://www.newspress.com/2026/05/18/family-sues-santa-barbara-unified-school-district-alleging-dos-pueblos-employees-sexually-abused-son/'},
-      {n:'Morningstar (AccessNewswire)',city:'Chicago, IL',co:'US',la:41.885,lo:-87.624,k:'dospueblos',t:3,u:'https://www.morningstar.com/news/accesswire/1167060msn/santa-barbara-schools-sexual-assault-complaint-by-veen-firm'},
-      {n:'Yahoo Finance (AccessNewswire)',city:'Sunnyvale, CA',co:'US',la:37.366,lo:-122.040,k:'dospueblos',t:3,u:'https://finance.yahoo.com/sectors/healthcare/articles/santa-barbara-schools-sexual-assault-060000692.html'},
-      {n:'The Globe and Mail (AccessNewswire)',city:'Toronto',co:'Canada',la:43.653,lo:-79.383,k:'dospueblos',t:3,u:'https://www.theglobeandmail.com/investing/markets/markets-news/ACCESS%20Newswire/1988164/santa-barbara-schools-sexual-assault-complaint-by-veen-firm/'},
-      {n:'Weatherford Democrat (AccessNewswire)',city:'Weatherford, TX',co:'US',la:32.759,lo:-97.797,k:'dospueblos',t:3,u:'https://www.weatherforddemocrat.com/texas/news/santa-barbara-schools-sexual-assault-complaint-by-veen-firm/article_8cab6aee-a3e9-5234-82a3-f484ae75b998.html'},
-      {n:'ABC7 I-Team',city:'San Rafael, CA',co:'US',la:37.974,lo:-122.531,k:'sanrafael',t:1,u:'https://abc7news.com/post/san-rafael-police-beating-gardener-julio-lopez-officers-charged-excessive-force/13692032/'},
-      {n:'Pacific Sun',city:'San Rafael, CA',co:'US',la:37.968,lo:-122.537,k:'sanrafael',t:2,u:'https://pacificsun.com/san-rafael-cop-not-guilty/'},
-      {n:'Marin Independent Journal',city:'San Rafael, CA',co:'US',la:37.979,lo:-122.525,k:'sanrafael',t:2,u:'https://edition.pagesuite.com/tribune/article_popover.aspx?guid=4ac51fa5-f406-4ff6-864c-1e606de53a49'},
-      {n:'NBC Bay Area',city:'San Jose, CA',co:'US',la:37.342,lo:-121.894,k:'sanrafael',t:1,u:'https://www.nbcbayarea.com/news/local/north-bay/lawsuit-filed-violent-police-confrontation-san-rafael/3279818/'},
-      {n:'Patch',city:'San Rafael, CA',co:'US',la:37.972,lo:-122.519,k:'sanrafael',t:3,u:'https://patch.com/california/sanrafael/city-will-pay-999k-man-injured-violent-arrest-marin-county-town'},
-      {n:'Local News Matters',city:'San Francisco',co:'US',la:37.799,lo:-122.398,k:'sanrafael',t:2,u:'https://localnewsmatters.org/2025/10/22/san-rafael-officer-involved-in-violent-canal-neighborhood-arrest-acquitted-by-jury/'},
-      {n:'Fortune',city:'New York',co:'US',la:40.716,lo:-74.001,k:'botanic',t:1,u:'https://fortune.com/2025/12/28/kratom-drink-feel-free-fda-supplements-labeling-lawsuit/'},
-      {n:'Entrepreneur',city:'New York',co:'US',la:40.710,lo:-73.997,k:'botanic',t:2,u:'https://www.entrepreneur.com/business-news/man-sues-wellness-beverage-for-causing-sobriety-relapse/449552'},
-      {n:'CBS News',city:'New York',co:'US',la:40.719,lo:-74.011,k:'botanic',t:1,u:'https://www.cbsnews.com/news/kratom-drink-feel-free-botanic-tonic-addiction/'},
-      {n:'BevNET',city:'Watertown, MA',co:'US',la:42.371,lo:-71.183,k:'botanic',t:2,u:'https://www.bevnet.com/news/2023/class-action-alleges-feel-free-7-eleven-misled-consumers-about-addiction-risk'},
-      {n:'ClassAction.org',city:'Chicago, IL',co:'US',la:41.892,lo:-87.620,k:'botanic',t:3,u:'https://www.classaction.org/news/8.75-million-botanic-tonics-settlement-reached-in-feel-free-kratom-lawsuit'},
-      {n:'The Oaklandside',city:'Oakland, CA',co:'US',la:37.810,lo:-122.266,k:'oakbike',t:2,u:'https://oaklandside.org/2023/12/06/oakland-lawsuit-settlement-6-million-bike-rider-macarthur-boulevard/'}
-    ];
-  var W=[{u:'https://frankfurtmotorshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.stateoftheunionnews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'http://www.newjerseytelegraph.com/news/279057983/santa-barbara-schools-sexual-assault-complaint-by-veen-firm',dist:'access',k:'dospueblos'},{u:'https://www.globaljournalobserver.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://automotive.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.innovationandentrepreneursnews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smbandme.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.worldonlinenewsreports.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.247businessreporter.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.coasttocoasttribune.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smallbusinessnewstoday.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globalbusinesswatch.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://patents.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smartsbusinesswire.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globaladvertisingnews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.northamericatoday.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.americanewsobserver.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.americantimesreporter.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smbinaction.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://electriccars.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.globalmediawatch.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.theconsumernewsnetwork.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.entrepreneurshipreporter.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.growingbusinessesinthenews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://world.einnews.com/pr_news/unitedstates/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.marcomworld.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.theconsumernewsnetwork.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.economicpolicytimes.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.worldtransporttimes.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.montserratdailynews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.consumerproductsworld.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://motorcycles.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://legalboards.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globaladvertisingnews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.globalnewsscanner.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.stateoftheunionnews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.50statestoday.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globalreporterjournal.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://genevamotorshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.worldpostreporter.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.themarketingcommunicator.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://legalaid.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.worldreportmonitor.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://hybridcars.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.goldenstatenewswire.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.mediaindustryobserver.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://pipa.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://world.einnews.com/pr_news/california/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://icj.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smbandme.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.pr-inside.com/santa-barbara-schools-sexual-assault-complaint-by-veen-firm-r5186586.htm',dist:'access',k:'dospueblos'},{u:'https://cairomotorshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'http://www.todayinlaw.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.todayinmarcom.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.worldadvertisingreport.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.theworldnewswire.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://moscowautosalon.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.247businessreporter.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.internationalbusinesswatch.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://world.einnews.com/pr_news/unitedstates/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.thebusinessgazetteonline.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.californianewsobserver.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.businesspostexaminer.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.innovationandentrepreneursnews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.montserratdailynews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.oneworlddailybrief.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://chicagoautoshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.businesstimesjournal.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smartsbusinesswire.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.internationalworldtimes.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globalreporterjournal.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.businesstimesjournal.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://acta.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.ustimesgazette.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.journalofbusinessnews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://bangkokautoshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.californianewsobserver.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://parismotorshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.worldpostreporter.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.consumerworldreport.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.internationalworldtimes.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smbinaction.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.eurekastatenews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globalnewsscanner.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'http://www.automotiveindustrytoday.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.50statestoday.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://detroitautoshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.northamericatoday.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://autochina.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smbworldreport.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.worldonlinenewsreports.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.entrepreneurshipreporter.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.ustimesgazette.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.economicpolicytimes.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.californiaentertainmentpress.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.marcomworld.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.globaljournalobserver.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.americanewsobserver.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.consumerworldreport.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://prwireindia.com/press-release/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://classactions.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'http://www.tennesseedaily.com/news/279057983/santa-barbara-schools-sexual-assault-complaint-by-veen-firm',dist:'access',k:'dospueblos'},{u:'https://www.californiaentertainmentpress.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smallbusinessnewswatch.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'http://www.californiatelegraph.com/news/279057983/santa-barbara-schools-sexual-assault-complaint-by-veen-firm',dist:'access',k:'dospueblos'},{u:'https://www.americantimesreporter.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.eurekastatenews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.worldadvertisingreport.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.eyeballsandclicks.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.consumerproductsworld.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.internationalnewsledger.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.globalmediawatch.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://courtrulings.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.worldreportmonitor.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.globalbusinesswatch.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.economicnewsobserver.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.thebusinessgazetteonline.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smbworldreport.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.einpresswire.com/article/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://tokyomotorshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://prisons.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.usdailyledger.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://tires.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smallbusinessesinthenews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smallbusinessesinthenews.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://bankruptcy.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.usdailyledger.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://torontoautoshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.theamericawatch.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://laautoshow.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.internationalnewsledger.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.eyeballsandclicks.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.themarcomjournal.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.usnationaltimes.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.theamericawatch.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://sopa.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.einpresswire.com/article/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.theworldnewswire.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smallbusinessnewswatch.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.businesspostexaminer.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.mediaindustryobserver.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smallbusinessworldjournal.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.todayinmarcom.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.businessheraldonline.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://consumerprotection.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smallbusinessonlinenetwork.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.journalofbusinessnews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.themarketingcommunicator.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smallbusinessworldmagazine.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.coasttocoasttribune.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://humanrightslaw.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://delhiautoexpo.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://lawschools.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.smallbusinessnewstoday.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smallbusinessonlinenetwork.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'http://www.automotivepressreleases.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smallbusinessworldjournal.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.goldenstatenewswire.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.growingbusinessesinthenews.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.businessheraldonline.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.smallbusinessworldmagazine.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://world.einnews.com/pr_news/california/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.themarcomjournal.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.usnationaltimes.com/article/914147448-20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.economicnewsobserver.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'http://www.hawaiitelegraph.com/news/279057983/santa-barbara-schools-sexual-assault-complaint-by-veen-firm',dist:'access',k:'dospueblos'},{u:'https://prwireindia.com/press-release/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://law.einnews.com/pr_news/914147448/20-women-sue-san-francisco-sheriff-over-mass-strip-search-allegedly-recorded-on-body-cameras-at-county-jail',dist:'ein',k:'strip'},{u:'https://www.internationalbusinesswatch.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://www.oneworlddailybrief.com/article/900054879-sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'},{u:'https://trucks.einnews.com/pr_news/900054879/sole-survivor-of-fatal-piedmont-cybertruck-crash-files-lawsuit-against-tesla',dist:'ein',k:'tesla'}];
-  var map=L.map(node,{scrollWheelZoom:false,worldCopyJump:true,minZoom:2}).setView([34,-60],3);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
-  function toggle(m,on){ if(on){ if(!map.hasLayer(m)) m.addTo(map);} else if(map.hasLayer(m)){ map.removeLayer(m);} }
-  var counts={}; W.forEach(function(w){counts[w.dist]=(counts[w.dist]||0)+1;});
-  var idx={}, GA=2.399963229728653, wireMarkers=[];
-  W.forEach(function(w){
-    var hub=HUBS[w.dist]||HUBS.ein, i=(idx[w.dist]=(idx[w.dist]||0)); idx[w.dist]++;
-    var rr=0.35+2.0*Math.sqrt((i+0.5)/counts[w.dist]), a=i*GA;
-    var la=hub[0]+rr*Math.cos(a), lo=hub[1]+rr*Math.sin(a)*1.28;
-    var hostn=w.u.replace(/^https?:\/\//,'').split('/')[0].replace(/^www\./,'');
-    var m=L.circleMarker([la,lo],{radius:3.3,color:WIRECOL,weight:0,fillColor:WIRECOL,fillOpacity:.5});
-    m._wire=true;
-    m.bindTooltip(hostn,{direction:'top',offset:[0,-2]});
-    m.bindPopup('<div class="veen-pop"><b>'+hostn+'</b><br><span class="cs" style="background:'+WIRECOL+';color:#161920">'+DIST[w.dist]+'</span><br><span style="color:#7a808e">Syndication pickup · '+C[w.k].l+'</span><br><a href="'+w.u+'" target="_blank" rel="noopener">Open pickup &#8599;</a></div>');
-    m.addTo(map); wireMarkers.push(m);
-  });
-  var groups={}; D.forEach(function(d){var key=d.la.toFixed(3)+','+d.lo.toFixed(3);(groups[key]=groups[key]||[]).push(d);});
-  Object.keys(groups).forEach(function(key){var arr=groups[key];if(arr.length>1){var R=0.05;arr.forEach(function(d,i){var a=(i/arr.length)*2*Math.PI;d.la+=R*Math.cos(a);d.lo+=R*Math.sin(a);});}});
-  var realMarkers=[], pts=[];
-  D.forEach(function(d){
-    var col=C[d.k].c, r=d.t===1?10:(d.t===2?8:6.5);
-    var m=L.circleMarker([d.la,d.lo],{radius:r,color:'#fff',weight:1.7,fillColor:col,fillOpacity:.95});
-    m._k=d.k;
-    m.bindTooltip(d.n,{direction:'top',offset:[0,-3]});
-    m.bindPopup('<div class="veen-pop"><b>'+d.n+'</b><br><span style="color:#7a808e">'+d.city+'</span><br><span class="cs" style="background:'+col+'">'+C[d.k].l+'</span><br><a href="'+d.u+'" target="_blank" rel="noopener">Read coverage &#8599;</a></div>');
-    m.addTo(map); realMarkers.push(m); pts.push([d.la,d.lo]);
-  });
-  map.fitBounds(pts,{padding:[42,42]});
-  var so=document.getElementById('st-outlets'); if(so) so.textContent=D.length;
-  var sw=document.getElementById('st-wire'); if(sw) sw.textContent=W.length;
-  var fc=document.getElementById('map-filters');
-  function addChip(color,label,fn){ var b=document.createElement('button'); b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','true'); b.innerHTML='<span class="dot" style="background:'+color+'"></span>'+label; b.addEventListener('click',function(){ var on=b.getAttribute('aria-pressed')!=='true'; b.setAttribute('aria-pressed',on?'true':'false'); fn(on); }); if(fc) fc.appendChild(b); }
-  Object.keys(C).forEach(function(k){ addChip(C[k].c,C[k].l,function(on){ realMarkers.forEach(function(m){ if(m._k===k) toggle(m,on); }); }); });
-  addChip(WIRECOL,'Wire-network pickups',function(on){ wireMarkers.forEach(function(m){ toggle(m,on); }); });
-})();
 </script>
 </body>
 </html>

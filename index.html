@@ -51,8 +51,6 @@ img{display:block;max-width:100%;}
 :focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:2px;}
 
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:40px;}
-.eyebrow{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--wine);}
-.eyebrow.d{color:var(--wine-bright);}
 .rule{height:1px;background:var(--line);border:0;margin:0;}
 .serifnum{font-variant-numeric:tabular-nums;}
 
@@ -114,8 +112,6 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .mast::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--ink) 34%,rgba(22,25,32,.72) 100%);pointer-events:none;}
 .mast .ph{position:absolute;inset:0;background:url('https://www.veenfirm.com/wp-content/themes/mega-theme/images/san-francisco-personal-injury-law-firm.jpg') center/cover, var(--ink);opacity:.16;filter:grayscale(.4) contrast(1.02);}
 .mast .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:96px 40px 0;}
-.mast .kicker{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
-.mast .kicker .ln{height:1px;width:54px;background:var(--wine-bright);opacity:.8;}
 .mast h1{color:#fff;font-size:clamp(3.4rem,10vw,8rem);line-height:.96;letter-spacing:-.03em;font-weight:600;}
 .mast .stand{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end;margin-top:40px;padding-bottom:56px;}
 .mast .stand p{color:var(--body-on-dark);font-size:21px;line-height:1.5;max-width:30ch;}
@@ -209,8 +205,6 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .row .figure-l{margin-top:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);max-width:18ch;margin-left:auto;line-height:1.4;}
 .row .pr{margin-top:16px;}
 
-/* boxed component: eyebrow bar + body (recognition list) */
-
 /* ============ PRESS RELEASES ============ */
 .releases{margin-top:56px;display:flex;flex-direction:column;gap:0;}
 .release{border-top:1px solid var(--line);padding:46px 0;}
@@ -229,26 +223,6 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .release .full .q{margin:22px 0;padding-left:22px;border-left:2px solid var(--wine);color:var(--ink-70);font-size:17px;line-height:1.5;}
 .release .full .q b{display:block;margin-top:8px;font-size:13px;color:var(--ink-90);font-weight:600;font-style:normal;}
 .release .ra{display:flex;gap:13px;flex-wrap:wrap;margin-top:26px;}
-
-/* ============ MEDIA CONTACT ============ */
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start;margin-top:18px;}
-.contact-lead h2{font-size:clamp(2.2rem,3.6vw,3rem);}
-.contact-lead p{color:var(--body-on-dark);font-size:19px;line-height:1.55;margin-top:20px;max-width:40ch;}
-.spokes{margin-top:40px;}
-.spokes .sh{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-on-dark);margin-bottom:18px;}
-.spokes ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;}
-.spokes li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:15px 0;border-top:1px solid var(--line-dark);color:#fff;font-weight:600;}
-.spokes li:last-child{border-bottom:1px solid var(--line-dark);}
-.spokes li span{font-weight:400;color:var(--muted-on-dark);font-size:14px;}
-.cbezel{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:20px;}
-.ccore{padding:6px 30px;}
-.crow{display:block;padding:22px 0;border-top:1px solid var(--line-dark);}
-.crow:first-child{border-top:0;}
-.crow .k{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-on-dark);margin-bottom:9px;}
-.crow .v{color:#fff;font-size:21px;font-weight:600;letter-spacing:-.01em;}
-.crow .v a{color:#fff;transition:color .3s;}
-.crow .v a:hover{color:var(--wine-bright);}
-.crow .v.sm{font-size:16px;font-weight:400;color:var(--body-on-dark);}
 
 /* ============ MEDIA ASSETS ============ */
 .assets-head{margin-bottom:46px;}
@@ -327,18 +301,12 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 .quickbar a{font-size:13.5px;font-weight:600;color:var(--ink-90);transition:color .3s var(--e-soft);white-space:nowrap;padding:2px 24px;border-left:1px solid var(--line);}
 .quickbar a:nth-of-type(1){border-left:0;padding-left:0;}
 .quickbar a:hover{color:var(--wine);}
-/* honors list (about) */
-.honors{margin-top:30px;display:flex;flex-direction:column;}
-.honors a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--line-dark);color:#fff;font-weight:600;font-size:14.5px;transition:color .3s;}
-.honors a:last-child{border-bottom:1px solid var(--line-dark);}
-.honors a:hover{color:var(--wine-bright);}
-.honors a span{font-weight:400;color:var(--muted-on-dark);font-size:13px;white-space:nowrap;}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1040px){
   .lead-top{grid-template-columns:1fr;}
   .lead-main{border-right:0;border-bottom:1px solid var(--line-soft);}
-  .contact-grid,.about{grid-template-columns:1fr;gap:40px;}
+  .about{grid-template-columns:1fr;gap:40px;}
   .photos{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:860px){
@@ -412,16 +380,14 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 <section class="mast">
   <div class="ph" aria-hidden="true"></div>
   <div class="inner">
-    <div class="kicker reveal"><span class="ln"></span><span class="eyebrow d">The Veen Firm Trial Law</span></div>
     <h1 class="reveal">Press Room</h1>
     <div class="stand">
-      <p class="reveal">A trial firm whose cases reach the front page. The filings, rulings, and recoveries that set precedent.</p>
       <div class="meta reveal">
         <b>San Francisco, California</b>
       </div>
     </div>
     <div class="actions reveal">
-      <a class="btn btn-primary" href="#contact">Media inquiries<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      <a class="btn btn-primary" href="mailto:info@veenfirm.com">Media inquiries<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
       <a class="btn btn-dark" href="#assets">Press kit &amp; photos<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
       <a class="btn btn-dark" href="video-room.html">Video room<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
     </div>
@@ -452,11 +418,7 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 <section id="news" class="sec light">
   <div class="wrap">
     <div class="sec-head">
-      <div class="ttl">
-        <span class="eyebrow">The Index</span>
-        <h2>In the News</h2>
-      </div>
-      <p class="note">The firm&rsquo;s cases in the news, most recent first.</p>
+      <div class="ttl"><h2>In the News</h2></div>
     </div>
 
     <article class="lead reveal">
@@ -829,12 +791,34 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 <section id="releases" class="sec plat">
   <div class="wrap">
     <div class="sec-head">
-      <div class="ttl"><span class="eyebrow">On the record</span><h2>Press Releases</h2></div>
-      <p class="note">Full text, plus a PDF of each.</p>
+      <div class="ttl"><h2>Press Releases</h2></div>
     </div>
     <div class="releases">
 
-      <!-- TESLA -->
+      <article class="release" id="pr-sb">
+        <div class="grid">
+          <div class="meta-col">May 18, 2026<span class="yr">For immediate release</span></div>
+          <div class="lead-col">
+            <h3>Lawsuit Filed Against Santa Barbara Unified Over Alleged Abuse of a Special-Education Student</h3>
+            <p class="dek">Complaint alleges eight causes of action including sexual battery, negligent hiring, and violation of the California constitutional right to privacy.</p>
+            <p class="preview"><span class="lead-in">SANTA BARBARA, Calif.</span> A teenage student at Dos Pueblos High School in Goleta was sexually abused at school by people the Santa Barbara Unified School District paid to care for him, according to a civil complaint filed in Santa Barbara Superior Court. The complaint, filed by attorneys Steven A. Kronenberg and Anthony L. Label of The Veen Firm, LLP, brings eight causes of action including sexual battery, battery, negligent hiring and supervision, invasion of privacy, and intentional infliction of emotional distress.</p>
+            <div class="full" id="full-sb" hidden>
+              <p>The student, identified in court filings only as John Doe to protect his identity as a minor, has developmental and communication disabilities and is enrolled in the special education program at Dos Pueblos. The complaint alleges he was repeatedly abused by three former paraeducators while being assisted with toileting and hygiene in restrooms and other secluded areas of the campus, places his caregivers were trusted to be alone with him.</p>
+              <p>The named defendants are former Dos Pueblos special education employees Andrew Grimes, Andrew Mitchell, and Miguel &ldquo;Michael&rdquo; Angel Juarez. On May 8, 2025, the Santa Barbara County Sheriff&rsquo;s Office arrested Juarez in a separate matter involving an adult victim and issued a public call for additional survivors and witnesses.</p>
+              <div class="q">&ldquo;Three adults were trusted to be alone with a child who could not speak for himself, and they used that access to hurt him. These predators do this because they know it is hard for these children to be heard. That is exactly why we are speaking up.&rdquo;<b>Steven A. Kronenberg, The Veen Firm</b></div>
+              <p>One day after Juarez was arrested, Sheriff&rsquo;s detectives arrested Shaun Donald Hertlein, then a walk-on assistant football coach at Dos Pueblos and a youth pastor in Goleta. Hertlein pleaded guilty in October 2025 to felony possession of more than six hundred images of child sexual abuse material. He is not a defendant in the Doe matter.</p>
+              <div class="q">&ldquo;Two former employees of the same school arrested for sex crimes in the same week is not a coincidence. It is a system that was not paying attention.&rdquo;<b>Anthony L. Label, The Veen Firm</b></div>
+              <p>Counsel of record are Steven A. Kronenberg, Anthony L. Label, and Bryan Ceglio. The Santa Barbara County Sheriff&rsquo;s Office continues to seek additional survivors related to the May 2025 arrest of defendant Juarez at (805) 681-4171. Confidential support is available 24 hours a day from Standing Together to End Sexual Assault at (805) 564-3696, in English and Spanish. Families who believe a relative may have been harmed at Dos Pueblos may contact The Veen Firm, or learn more at veenfirm.com/sexual-assault.</p>
+            </div>
+            <div class="ra">
+              <button class="btn btn-ghost btn-sm toggle" data-target="full-sb"><span class="lbl">Read full release</span><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+              <a class="btn btn-primary btn-sm" href="assets/press-releases/Veen-Press-Release_Doe-v-Santa-Barbara-USD.pdf" target="_blank" rel="noopener">PDF<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
+              <a class="tlink" style="align-self:center" href="https://www.veenfirm.com/special-needs-student-sues-santa-barbara-unified-over-sexual-abuse-at-dos-pueblos-high-school/" target="_blank" rel="noopener">Blog post <span class="ar">&#8599;</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <article class="release" id="pr-tesla">
         <div class="grid">
           <div class="meta-col">March 2026<span class="yr">For immediate release</span></div>
@@ -860,32 +844,6 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
         </div>
       </article>
 
-      <!-- SANTA BARBARA -->
-      <article class="release" id="pr-sb">
-        <div class="grid">
-          <div class="meta-col">May 18, 2026<span class="yr">For immediate release</span></div>
-          <div class="lead-col">
-            <h3>Lawsuit Filed Against Santa Barbara Unified Over Alleged Abuse of a Special-Education Student</h3>
-            <p class="dek">Complaint alleges eight causes of action including sexual battery, negligent hiring, and violation of the California constitutional right to privacy.</p>
-            <p class="preview"><span class="lead-in">SANTA BARBARA, Calif.</span> A teenage student at Dos Pueblos High School in Goleta was sexually abused at school by people the Santa Barbara Unified School District paid to care for him, according to a civil complaint filed in Santa Barbara Superior Court. The complaint, filed by attorneys Steven A. Kronenberg and Anthony L. Label of The Veen Firm, LLP, brings eight causes of action including sexual battery, battery, negligent hiring and supervision, invasion of privacy, and intentional infliction of emotional distress.</p>
-            <div class="full" id="full-sb" hidden>
-              <p>The student, identified in court filings only as John Doe to protect his identity as a minor, has developmental and communication disabilities and is enrolled in the special education program at Dos Pueblos. The complaint alleges he was repeatedly abused by three former paraeducators while being assisted with toileting and hygiene in restrooms and other secluded areas of the campus, places his caregivers were trusted to be alone with him.</p>
-              <p>The named defendants are former Dos Pueblos special education employees Andrew Grimes, Andrew Mitchell, and Miguel &ldquo;Michael&rdquo; Angel Juarez. On May 8, 2025, the Santa Barbara County Sheriff&rsquo;s Office arrested Juarez in a separate matter involving an adult victim and issued a public call for additional survivors and witnesses.</p>
-              <div class="q">&ldquo;Three adults were trusted to be alone with a child who could not speak for himself, and they used that access to hurt him. These predators do this because they know it is hard for these children to be heard. That is exactly why we are speaking up.&rdquo;<b>Steven A. Kronenberg, The Veen Firm</b></div>
-              <p>One day after Juarez was arrested, Sheriff&rsquo;s detectives arrested Shaun Donald Hertlein, then a walk-on assistant football coach at Dos Pueblos and a youth pastor in Goleta. Hertlein pleaded guilty in October 2025 to felony possession of more than six hundred images of child sexual abuse material. He is not a defendant in the Doe matter.</p>
-              <div class="q">&ldquo;Two former employees of the same school arrested for sex crimes in the same week is not a coincidence. It is a system that was not paying attention.&rdquo;<b>Anthony L. Label, The Veen Firm</b></div>
-              <p>Counsel of record are Steven A. Kronenberg, Anthony L. Label, and Bryan Ceglio. The Santa Barbara County Sheriff&rsquo;s Office continues to seek additional survivors related to the May 2025 arrest of defendant Juarez at (805) 681-4171. Confidential support is available 24 hours a day from Standing Together to End Sexual Assault at (805) 564-3696, in English and Spanish. Families who believe a relative may have been harmed at Dos Pueblos may contact The Veen Firm, or learn more at veenfirm.com/sexual-assault.</p>
-            </div>
-            <div class="ra">
-              <button class="btn btn-ghost btn-sm toggle" data-target="full-sb"><span class="lbl">Read full release</span><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
-              <a class="btn btn-primary btn-sm" href="assets/press-releases/Veen-Press-Release_Doe-v-Santa-Barbara-USD.pdf" target="_blank" rel="noopener">PDF<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
-              <a class="tlink" style="align-self:center" href="https://www.veenfirm.com/special-needs-student-sues-santa-barbara-unified-over-sexual-abuse-at-dos-pueblos-high-school/" target="_blank" rel="noopener">Blog post <span class="ar">&#8599;</span></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- WHITEHEAD -->
       <article class="release" id="pr-wh">
         <div class="grid">
           <div class="meta-col">May 1, 2025<span class="yr">For immediate release</span></div>
@@ -913,44 +871,11 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
     </div>
   </div>
 </section>
-
-<!-- ============ MEDIA CONTACT ============ -->
-<section id="contact" class="sec ink">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="ttl"><span class="eyebrow d">For the press</span></div>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-lead">
-        <h2>Media Contact</h2>
-        <p>For interviews, case documents, or background, reach our media line directly. Our attorneys are available to comment on active matters.</p>
-        <div class="spokes">
-          <div class="sh">Available for interview</div>
-          <ul>
-            <li>Anthony L. Label <span>Partner, Trial Team Leader</span></li>
-            <li>Annie Wu <span>Partner</span></li>
-            <li>Steven A. Kronenberg <span>Partner</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="cbezel">
-        <div class="ccore">
-          <div class="crow"><div class="k">Press inquiries</div><div class="v"><a href="tel:5105606731">(510) 560-6731</a></div></div>
-          <div class="crow"><div class="k">Email</div><div class="v"><a href="mailto:info@veenfirm.com">info@veenfirm.com</a></div></div>
-          <div class="crow"><div class="k">Main office</div><div class="v"><a href="tel:4156734800">(415) 673-4800</a></div></div>
-          <div class="crow"><div class="k">Address</div><div class="v sm">20 Haight Street, San Francisco, California 94102</div></div>
-          <div class="crow"><div class="k">Hours</div><div class="v sm">Monday to Friday, 8:30am to 5pm</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ MEDIA ASSETS ============ -->
 <section id="assets" class="sec light">
   <div class="wrap">
     <div class="sec-head assets-head">
-      <div class="ttl"><span class="eyebrow">Downloads</span><h2>Media Assets</h2></div>
+      <div class="ttl"><h2>Media Assets</h2></div>
       <p class="note">Photos, logos, and a fact sheet, free for Veen Firm media use. Photography by Julio Duffoo.</p>
     </div>
 
@@ -985,8 +910,7 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
 <section class="sec plat">
   <div class="wrap">
     <div class="sec-head">
-      <div class="ttl"><span class="eyebrow">The ledger</span><h2>Selected Results</h2></div>
-      <p class="note">A sample from across the firm&rsquo;s history.</p>
+      <div class="ttl"><h2>Selected Results</h2></div>
     </div>
     <div class="results">
       <div class="res reveal"><div class="amt">$36<span class="u">M</span></div><div class="desc"><span class="ct">Will Contest</span><span class="tx">Relatives of a reclusive millionaire successfully challenge the authenticity of a will.</span></div></div>
@@ -1008,8 +932,7 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
   <div class="wrap">
     <div class="about">
       <div class="lead-col">
-        <span class="eyebrow d">About the firm</span>
-        <h2 style="margin-top:18px;">The Veen Firm LLP</h2>
+        <h2>The Veen Firm LLP</h2>
         <p class="big">A San Francisco trial firm for catastrophic injury, wrongful death, and complex civil cases throughout California.</p>
         <p class="sm">Founded in 1975, the firm has recovered more than one billion dollars for injury victims. It takes the hard cases other firms turn away, bringing the trial skill and the financial resources required to win against well-funded corporate and public-entity defendants.</p>
         <div class="pa">
@@ -1017,12 +940,7 @@ footer.site{background:var(--ink);padding:88px 0 44px;border-top:1px solid var(-
           <span>Civil rights</span><span>Medical malpractice</span><span>Workplace injuries</span>
           <span>Public entity liability</span><span>Premises liability</span>
         </div>
-        <div class="honors">
-          <a href="https://www.veenfirm.com/william-l-veen-named-as-a-recipient-of-the-caoc-2018-robert-e-cartwright-sr-award/" target="_blank" rel="noopener">CAOC Robert E. Cartwright, Sr. Award <span>William L. Veen, 2018</span></a>
-          <a href="https://www.veenfirm.com/anthony-label-named-marin-trial-lawyers-association-s-2019-trial-lawyer-of-the-year/" target="_blank" rel="noopener">Marin Trial Lawyer of the Year <span>Anthony L. Label, 2019</span></a>
-          <a href="https://plaintiffmagazine.com/recent-issues/item/using-social-media-to-build-and-protect-your-case" target="_blank" rel="noopener">Plaintiff Magazine bylines <span>Steven A. Kronenberg, 2019&ndash;2021</span></a>
-        </div>
-      </div>
+              </div>
       <div class="facts">
         <div class="fact"><div class="n">Top 5<span class="u">%</span></div><div class="l">Super Lawyers</div></div>
         <div class="fact"><div class="n">Top 100</div><div class="l">National Trial Lawyers</div></div>

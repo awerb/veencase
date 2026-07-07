@@ -111,19 +111,18 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backd
 .mast{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden;}
 .mast::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--ink) 34%,rgba(22,25,32,.72) 100%);pointer-events:none;}
 .mast .ph{position:absolute;inset:0;background:url('https://www.veenfirm.com/wp-content/themes/mega-theme/images/san-francisco-personal-injury-law-firm.jpg') center/cover, var(--ink);opacity:.16;filter:grayscale(.4) contrast(1.02);}
-.mast .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:56px 40px 0;}
+.mast .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:52px 40px 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;}
 .mast h1{color:#fff;font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:-.03em;font-weight:600;}
-.mast .stand{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:end;margin-top:18px;padding-bottom:26px;}
-.mast .stand p{color:var(--body-on-dark);font-size:21px;line-height:1.5;max-width:30ch;}
-.mast .stand .meta{justify-self:end;text-align:right;color:var(--muted-on-dark);font-size:13px;letter-spacing:.04em;line-height:1.8;}
-.mast .stand .meta b{color:#fff;font-weight:600;}
-.mast .actions{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:40px;}
+.mast .loc{display:flex;align-items:center;gap:10px;margin-top:14px;color:var(--muted-on-dark);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;}
+.mast .loc::before{content:"";width:26px;height:1px;background:var(--wine-bright);}
+.mast .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
 
 /* proof ledger */
-.ledger{position:relative;z-index:2;border-top:1px solid var(--line-dark);background:var(--ink-2);}
-.ledger .inner{max-width:var(--maxw);margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);}
-.ledger .cell{padding:20px 24px 22px;border-left:1px solid var(--line-dark);}
-.ledger .cell:first-child{border-left:0;padding-left:0;}
+.ledger{display:grid;grid-template-columns:1fr 1fr;background:var(--ink-2);border:1px solid var(--line-dark-2);border-radius:16px;overflow:hidden;}
+.ledger .cell{padding:22px 26px;border-left:1px solid var(--line-dark);border-top:1px solid var(--line-dark);}
+.ledger .cell:nth-child(1){border-left:0;border-top:0;}
+.ledger .cell:nth-child(2){border-top:0;}
+.ledger .cell:nth-child(3){border-left:0;}
 .ledger .n{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:600;letter-spacing:-.03em;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
 .ledger .n .u{color:var(--wine-bright);}
 .ledger .l{margin-top:7px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-dark);line-height:1.5;}
@@ -304,6 +303,7 @@ footer.site{background:var(--ink);padding:48px 0 32px;border-top:1px solid var(-
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1040px){
+  .mast .inner{grid-template-columns:1fr;gap:36px;}
   .lead-top{grid-template-columns:1fr;}
   .lead-main{border-right:0;border-bottom:1px solid var(--line-soft);}
   .about{grid-template-columns:1fr;gap:40px;}
@@ -313,12 +313,7 @@ footer.site{background:var(--ink);padding:48px 0 32px;border-top:1px solid var(-
   .hdr nav,.hdr .tel{display:none;}
   .menu-btn{display:flex;}
   .fgrid{grid-template-columns:1fr;gap:44px;}
-  .ledger .inner{grid-template-columns:1fr 1fr;}
-  .ledger .cell:nth-child(3){border-left:0;padding-left:0;}
-  .ledger .cell{border-top:1px solid var(--line-dark);}
-  .ledger .cell:nth-child(-n+2){border-top:0;}
-  .mast .stand{grid-template-columns:1fr;gap:24px;}
-  .mast .stand .meta{justify-self:start;text-align:left;}
+  .mast .inner{grid-template-columns:1fr;gap:36px;}
   .sec-head{grid-template-columns:1fr;gap:14px;}
   .sec-head .note{justify-self:start;text-align:left;}
   .cov-grid{grid-template-columns:1fr;gap:4px;}
@@ -329,7 +324,8 @@ footer.site{background:var(--ink);padding:48px 0 32px;border-top:1px solid var(-
   .release .grid{grid-template-columns:1fr;gap:14px;}
 }
 @media(max-width:560px){
-  .wrap,.hdr,.mast .inner,.ledger .inner,.quickbar .inner,.fgrid,.legal{padding-inline:22px;}
+  .wrap,.hdr,.mast .inner,.quickbar .inner,.fgrid,.legal{padding-inline:22px;}
+  .ledger .cell{padding:16px 18px;}
   .lead-main,.lead-side,.cov{padding-left:26px;padding-right:26px;}
   .photos{grid-template-columns:1fr 1fr;gap:14px;}
   .kitrow,.kitbanner{grid-template-columns:1fr;}
@@ -380,24 +376,20 @@ footer.site{background:var(--ink);padding:48px 0 32px;border-top:1px solid var(-
 <section class="mast">
   <div class="ph" aria-hidden="true"></div>
   <div class="inner">
-    <h1 class="reveal">Press Room</h1>
-    <div class="stand">
-      <div class="meta reveal">
-        <b>San Francisco, California</b>
+    <div class="hero-l">
+      <h1 class="reveal">Press Room</h1>
+      <p class="loc reveal">The Veen Firm &middot; San Francisco, California</p>
+      <div class="actions reveal">
+        <a class="btn btn-primary" href="mailto:info@veenfirm.com">Media inquiries<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        <a class="btn btn-dark" href="#assets">Press kit &amp; photos<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
+        <a class="btn btn-dark" href="video-room.html">Video room<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
       </div>
     </div>
-    <div class="actions reveal">
-      <a class="btn btn-primary" href="mailto:info@veenfirm.com">Media inquiries<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-      <a class="btn btn-dark" href="#assets">Press kit &amp; photos<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
-      <a class="btn btn-dark" href="video-room.html">Video room<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-    </div>
-  </div>
-  <div class="ledger">
-    <div class="inner">
-      <div class="cell reveal"><div class="n">$1<span class="u">B</span>+</div><div class="l">Recovered for clients</div></div>
-      <div class="cell reveal"><div class="n">50<span class="u">yr</span></div><div class="l">Of trial practice, since 1975</div></div>
-      <div class="cell reveal"><div class="n">130<span class="u">+</span></div><div class="l">Outlets on the Tesla filing</div></div>
-      <div class="cell reveal"><div class="n">7<span class="u">-</span>0</div><div class="l">Supreme Court win, Whitehead</div></div>
+    <div class="ledger reveal">
+      <div class="cell"><div class="n">$1<span class="u">B</span>+</div><div class="l">Recovered for clients</div></div>
+      <div class="cell"><div class="n">50<span class="u">yr</span></div><div class="l">Of trial practice, since 1975</div></div>
+      <div class="cell"><div class="n">130<span class="u">+</span></div><div class="l">Outlets on the Tesla filing</div></div>
+      <div class="cell"><div class="n">7<span class="u">-</span>0</div><div class="l">Supreme Court win, Whitehead</div></div>
     </div>
   </div>
 </section>

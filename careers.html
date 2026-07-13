@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Careers &middot; Veen Firm Trial Law</title>
+<meta name="description" content="Careers at The Veen Firm, a nationally recognized plaintiff personal injury trial firm in San Francisco. Current openings for a Litigation Paralegal and a Personal Injury Litigation Attorney." />
+<link rel="icon" href="assets/img/veen-logo-ink.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   The Veen Firm Press Room
+   Brand system: Montserrat (400 / 600), Ink + Shadow darks,
+   cool Platinum lights, a single Dark Wine accent.
+   Direction: institutional editorial newsroom. The wine does
+   all emphasis; type and space carry the design.
+   ============================================================ */
+:root{
+  --ink:#161920;            /* Ink Black (brand) */
+  --ink-2:#1b1e26;
+  --shadow:#1e2029;         /* Shadow Grey */
+  --wine:#83201e; --wine-press:#5c1715; --wine-hover:#9a2a28; --wine-bright:#b94542;
+  --wine-tint:#f6eae9;
+  --paper:#ffffff;
+  --platinum:#f1f2f5; --platinum-2:#f8f9fb;
+  --ink-90:#161920; --ink-70:#363a47;
+  --text:#4b5060;          /* body on light (brand) */
+  --muted:#6b7080;
+  --faint:#9aa0ad;
+  --on-dark:#ffffff; --body-on-dark:#c7cbd3; --muted-on-dark:#9aa0ad;
+  --line:#e1e3e9; --line-soft:#ebedf1; --line-dark:rgba(255,255,255,.10); --line-dark-2:rgba(255,255,255,.18);
+  --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --maxw:1240px; --measure:680px;
+  --shadow-sm:0 1px 2px rgba(22,25,32,.05),0 4px 14px rgba(22,25,32,.05);
+  --shadow-card:0 1px 2px rgba(22,25,32,.06),0 14px 36px rgba(22,25,32,.09);
+  --e-soft:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.32,.72,0,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+[id]{scroll-margin-top:88px;}
+body{margin:0;font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.55;color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+h1,h2,h3,h4{margin:0;font-weight:600;color:var(--ink-90);line-height:1.08;letter-spacing:-.015em;text-wrap:balance;}
+p{margin:0;text-wrap:pretty;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+::selection{background:var(--wine);color:#fff;}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:2px;}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:40px;}
+.rule{height:1px;background:var(--line);border:0;margin:0;}
+.serifnum{font-variant-numeric:tabular-nums;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s var(--e-soft),transform .5s var(--e-soft);}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* ---------- buttons (brand pills) ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.01em;border-radius:999px;padding:10px 18px;border:1px solid transparent;cursor:pointer;transition:background .22s var(--e-soft),color .22s var(--e-soft),border-color .22s var(--e-soft);}
+.btn .disc{display:inline-flex;align-items:center;transition:transform .22s var(--e-soft);}
+.btn .disc svg{width:15px;height:15px;}
+.btn:hover .disc{transform:translateX(2px);}
+.btn-primary{background:var(--wine);color:#fff;}
+.btn-primary:hover{background:var(--wine-hover);}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink-90);}
+.btn-ghost .disc svg{color:var(--wine);}
+.btn-ghost:hover{border-color:var(--ink-90);}
+.btn-dark{background:transparent;border-color:var(--line-dark-2);color:#fff;}
+.btn-dark:hover{border-color:#fff;background:rgba(255,255,255,.05);}
+.btn-sm{font-size:13px;padding:9px 16px;}
+.btn-sm .disc svg{width:13px;height:13px;}
+
+/* textlink */
+.tlink{display:inline-flex;align-items:baseline;gap:6px;font-weight:600;color:var(--wine);transition:color .3s var(--e-soft);}
+.tlink:hover{color:var(--wine-hover);}
+.tlink .ar{font-size:.85em;transition:transform .35s var(--e-spring);}
+.tlink:hover .ar{transform:translate(2px,-2px);}
+
+/* ============ HEADER ============ */
+header.site{position:sticky;top:0;z-index:60;background:rgba(22,25,32,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dark);}
+.hdr{max-width:var(--maxw);margin:0 auto;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:36px;}
+.hdr .brand img{height:28px;}
+.hdr nav{display:flex;align-items:center;gap:30px;}
+.hdr nav a{color:var(--body-on-dark);font-size:13.5px;font-weight:600;letter-spacing:.005em;transition:color .3s var(--e-soft);}
+.hdr nav a:hover{color:#fff;}
+.hdr nav a.here{color:#fff;}
+.hdr nav a.here::after{content:"";display:block;height:1px;background:var(--wine-bright);margin-top:5px;}
+.hdr .r{display:flex;align-items:center;gap:18px;}
+.hdr .tel{color:#fff;font-size:13.5px;font-weight:600;letter-spacing:.01em;opacity:.92;}
+.hdr .tel:hover{opacity:1;}
+.menu-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:transparent;border:1px solid var(--line-dark-2);border-radius:10px;color:#fff;cursor:pointer;flex-shrink:0;}
+.menu-btn svg{width:19px;height:19px;}
+.menu-btn .x{display:none;}
+.menu-btn[aria-expanded="true"] .bars{display:none;}
+.menu-btn[aria-expanded="true"] .x{display:block;}
+.mobile-nav{display:none;}
+.mobile-nav[data-open]{display:block;}
+.mobile-nav{background:var(--ink-2);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);padding:10px 22px 26px;}
+.mobile-nav nav{display:flex;flex-direction:column;}
+.mobile-nav nav a{color:var(--body-on-dark);font-size:16px;font-weight:600;padding:14px 0;border-top:1px solid var(--line-dark);}
+.mobile-nav nav a:first-child{border-top:0;}
+.mobile-nav nav a.here{color:#fff;}
+.mobile-nav .mrow{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;flex-wrap:wrap;}
+.mobile-nav .tel{color:#fff;font-size:15px;font-weight:600;}
+
+/* ============ MASTHEAD ============ */
+.mast{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden;}
+.mast::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--ink) 34%,rgba(22,25,32,.72) 100%);pointer-events:none;}
+.mast .ph{position:absolute;inset:0;background:url('https://www.veenfirm.com/wp-content/themes/mega-theme/images/san-francisco-personal-injury-law-firm.jpg') center/cover, var(--ink);opacity:.16;filter:grayscale(.4) contrast(1.02);}
+.mast .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:52px 40px 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;}
+.mast h1{color:#fff;font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:-.03em;font-weight:600;}
+.mast .loc{display:flex;align-items:center;gap:10px;margin-top:14px;color:var(--muted-on-dark);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;}
+.mast .loc::before{content:"";width:26px;height:1px;background:var(--wine-bright);}
+.mast .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+
+/* proof ledger */
+.ledger{display:grid;grid-template-columns:1fr 1fr;background:var(--ink-2);border:1px solid var(--line-dark-2);border-radius:16px;overflow:hidden;}
+.ledger .cell{padding:22px 26px;border-left:1px solid var(--line-dark);border-top:1px solid var(--line-dark);}
+.ledger .cell:nth-child(1){border-left:0;border-top:0;}
+.ledger .cell:nth-child(2){border-top:0;}
+.ledger .cell:nth-child(3){border-left:0;}
+.ledger .n{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:600;letter-spacing:-.03em;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
+.ledger .n .u{color:var(--wine-bright);}
+.ledger .l{margin-top:7px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-dark);line-height:1.5;}
+
+/* ============ SECTION SCAFFOLD ============ */
+.sec{padding:56px 0;}
+.sec.light{background:var(--paper);}
+.sec.plat{background:var(--platinum);}
+.sec.ink{background:var(--ink);color:var(--body-on-dark);}
+.sec.ink h2,.sec.ink h3{color:#fff;}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:baseline;margin-bottom:8px;}
+.sec-head .ttl{display:flex;flex-direction:column;gap:18px;}
+.sec-head h2{font-size:clamp(1.5rem,2.4vw,1.9rem);letter-spacing:-.02em;}
+.sec-head .note{justify-self:end;text-align:right;max-width:34ch;color:var(--muted);font-size:15px;line-height:1.55;}
+.sec.ink .sec-head .note{color:var(--muted-on-dark);}
+
+/* ============ NEWSROOM INDEX ============ */
+/* lead feature */
+.lead{margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-card);overflow:hidden;}
+.lead-core{background:var(--paper);}
+.lead-top{display:grid;grid-template-columns:1.35fr 1fr;}
+.lead-main{padding:30px 32px 28px;border-right:1px solid var(--line-soft);}
+.lead-side{padding:30px 28px;background:var(--platinum-2);}
+.dateline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.dateline .d{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-90);font-variant-numeric:tabular-nums;}
+.pip{width:4px;height:4px;border-radius:50%;background:var(--wine);}
+.cat{display:inline-flex;align-items:center;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);background:var(--wine-tint);padding:5px 13px;border-radius:999px;line-height:1.3;}
+.lead h3.hl{font-size:clamp(1.4rem,2.2vw,1.85rem);line-height:1.12;letter-spacing:-.025em;color:var(--ink-90);}
+.lead .case{margin-top:9px;font-size:12.5px;color:var(--muted);letter-spacing:.01em;}
+.lead .dek{margin-top:14px;font-size:15.5px;line-height:1.55;color:var(--text);max-width:52ch;}
+.lead .by{margin-top:14px;font-size:13px;color:var(--muted);}
+.lead .by b{color:var(--ink-90);font-weight:600;}
+.lead .cta-row{display:flex;gap:11px;flex-wrap:wrap;margin-top:20px;}
+.lead-side .sidehd{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;}
+.impact{display:flex;flex-direction:column;}
+.impact>div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid var(--line);}
+.impact>div:first-child{border-top:0;padding-top:0;}
+.impact>div:last-child{padding-bottom:0;}
+.impact .n{font-size:1.6rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);line-height:.95;font-variant-numeric:tabular-nums;}
+.impact .n .u{color:var(--wine);}
+.impact .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.4;text-align:right;}
+
+/* coverage rail */
+.cov{border-top:1px solid var(--line-soft);padding:20px 32px 26px;}
+.cov-h{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.cov-grid{display:grid;grid-template-columns:160px 1fr;gap:8px 24px;}
+.cov-tier{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);padding-top:11px;}
+.cov-list{display:flex;flex-wrap:wrap;gap:0 4px;padding-bottom:16px;border-bottom:1px solid var(--line-soft);}
+.cov-row:last-child .cov-list{border-bottom:0;}
+.outlet{display:inline-flex;align-items:baseline;gap:5px;padding:6px 12px 6px 0;margin-right:8px;font-size:13px;font-weight:400;color:var(--ink-90);border-bottom:1px solid transparent;transition:color .3s var(--e-soft);white-space:nowrap;}
+.outlet .rr{font-size:11.5px;font-weight:400;color:var(--faint);}
+.outlet .ar{font-size:11px;color:var(--faint);transition:transform .35s var(--e-spring),color .3s;}
+.outlet:hover{color:var(--wine);}
+.outlet:hover .ar{transform:translate(2px,-2px);color:var(--wine);}
+.outlet.firm{color:var(--wine);font-weight:600;}
+.outlet.firm::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--wine);margin-right:8px;transform:translateY(-2px);}
+.synth{margin-top:18px;font-size:13.5px;color:var(--muted);font-style:italic;}
+
+/* wire distribution disclosure */
+
+/* index rows (non-lead stories) */
+.rows{margin-top:10px;}
+.row{display:grid;grid-template-columns:112px 1fr auto;gap:26px;align-items:start;padding:24px 0;border-top:1px solid var(--line);transition:background .4s var(--e-soft);}
+.row:hover{background:linear-gradient(90deg,rgba(131,32,30,.025),transparent 40%);}
+.row .when{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink-90);padding-top:3px;font-variant-numeric:tabular-nums;}
+.row .when .yr{display:block;font-size:11px;color:var(--faint);font-weight:400;margin-top:3px;letter-spacing:.1em;}
+.row .body{max-width:640px;}
+.row .cat{margin-bottom:7px;}
+.row h4{font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.2;letter-spacing:-.02em;color:var(--ink-90);}
+.row .case{margin-top:6px;font-size:12px;color:var(--muted);}
+.row .dek{margin-top:9px;font-size:14px;line-height:1.55;color:var(--text);}
+.row .by{margin-top:9px;font-size:12.5px;color:var(--muted);}
+.row .by b{color:var(--ink-90);font-weight:600;}
+.row .outlets{margin-top:10px;display:flex;flex-wrap:wrap;gap:0 2px;}
+.row .outlets .outlet{font-size:12.5px;padding-top:4px;padding-bottom:4px;}
+.row .aside{justify-self:end;text-align:right;min-width:150px;padding-top:3px;}
+.row .figure{font-size:1.5rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);line-height:1;font-variant-numeric:tabular-nums;}
+.row .figure .u{color:var(--wine);}
+.row .figure-l{margin-top:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);max-width:18ch;margin-left:auto;line-height:1.4;}
+.row .pr{margin-top:16px;}
+
+/* ============ PRESS RELEASES ============ */
+.releases{margin-top:24px;display:flex;flex-direction:column;gap:0;}
+.release{border-top:1px solid var(--line);padding:28px 0;}
+.release:last-child{border-bottom:1px solid var(--line);}
+.release .grid{display:grid;grid-template-columns:128px 1fr;gap:36px;}
+.release .lead-col .dateline{margin-bottom:0;}
+.release .meta-col{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink-90);}
+.release .meta-col .yr{display:block;font-size:11px;color:var(--faint);font-weight:400;margin-top:3px;letter-spacing:.1em;}
+.release h3{font-size:clamp(1.2rem,1.7vw,1.5rem);line-height:1.2;letter-spacing:-.02em;color:var(--ink-90);max-width:24ch;}
+.release .dek{margin-top:10px;font-size:14.5px;color:var(--text);font-style:italic;max-width:60ch;}
+.release .preview{margin-top:12px;color:var(--text);max-width:68ch;}
+.release .preview .lead-in{font-weight:600;color:var(--ink-90);}
+.release .full{max-width:68ch;}
+.release .full[hidden]{display:none;}
+.release .full p{margin-top:16px;color:var(--text);}
+.release .full .q{margin:22px 0;padding-left:22px;border-left:2px solid var(--wine);color:var(--ink-70);font-size:17px;line-height:1.5;}
+.release .full .q b{display:block;margin-top:8px;font-size:13px;color:var(--ink-90);font-weight:600;font-style:normal;}
+.release .ra{display:flex;gap:11px;flex-wrap:wrap;margin-top:16px;}
+
+/* ============ MEDIA ASSETS ============ */
+.assets-head{margin-bottom:24px;}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.shot{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .22s var(--e-soft),box-shadow .22s var(--e-soft);}
+.shot:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);}
+.shot .frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink);}
+.shot .frame img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--e-soft);}
+.shot:hover .frame img{transform:scale(1.03);}
+.shot .ini{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:600;color:#fff;background:linear-gradient(155deg,var(--wine-press),var(--wine));letter-spacing:.03em;}
+.shot .cap{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:16px 14px 12px;}
+.shot .nm{font-weight:600;color:var(--ink-90);font-size:15.5px;letter-spacing:-.01em;}
+.shot .rl{font-size:12px;color:var(--muted);margin-top:2px;}
+.shot .dl{flex-shrink:0;width:34px;height:34px;border-radius:999px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--wine);transition:transform .4s var(--e-spring),background .3s,border-color .3s;}
+.shot .dl svg{width:15px;height:15px;}
+.shot .dl:hover{background:var(--wine);border-color:var(--wine);color:#fff;transform:translateY(-2px);}
+.shot .dl.off{color:var(--faint);cursor:default;}
+.shot .dl.off:hover{background:var(--paper);border-color:var(--line);color:var(--faint);transform:none;}
+
+.kitrow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.kit{display:flex;align-items:center;gap:22px;background:var(--platinum-2);border:1px solid var(--line);border-radius:16px;padding:22px 26px;}
+.kit .sw{width:118px;height:74px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.kit .sw.dk{background:var(--ink);}
+.kit .sw.lt{background:var(--paper);border:1px solid var(--line);}
+.kit .sw img{height:24px;}
+.kit .t{font-weight:600;color:var(--ink-90);font-size:15px;}
+.kit .d{font-size:12.5px;color:var(--muted);margin:3px 0 12px;}
+.kitbanner{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--ink);border-radius:16px;padding:26px 32px;}
+.kitbanner h3{color:#fff;font-size:1.55rem;letter-spacing:-.02em;}
+.kitbanner p{color:var(--body-on-dark);margin-top:8px;font-size:15px;max-width:48ch;}
+
+/* ============ LEDGER OF RESULTS ============ */
+.results{margin-top:20px;border-top:1px solid var(--ink-90);}
+.res{display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);}
+.res .amt{font-size:1.4rem;font-weight:600;letter-spacing:-.03em;color:var(--ink-90);font-variant-numeric:tabular-nums;line-height:1;}
+.res .amt .u{color:var(--wine);}
+.res .desc{display:flex;flex-direction:column;gap:5px;}
+.res .desc .ct{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);}
+.res .desc .tx{font-size:15.5px;color:var(--text);line-height:1.5;}
+.results-foot{margin-top:22px;font-size:13px;color:var(--muted);font-style:italic;max-width:80ch;}
+
+/* ============ ABOUT ============ */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.about .lead-col h2{font-size:clamp(1.5rem,2.4vw,1.9rem);}
+.about .big{margin-top:14px;font-size:16.5px;line-height:1.5;color:var(--body-on-dark);max-width:34ch;}
+.about p.sm{margin-top:18px;color:var(--muted-on-dark);font-size:15.5px;line-height:1.6;max-width:46ch;}
+.about .facts{display:flex;flex-direction:column;}
+.about .fact{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:14px 0;border-top:1px solid var(--line-dark);}
+.about .fact:last-child{border-bottom:1px solid var(--line-dark);}
+.about .fact .n{font-size:1.6rem;font-weight:600;letter-spacing:-.03em;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
+.about .fact .n .u{color:var(--wine-bright);}
+.about .fact .l{text-align:right;font-size:13px;color:var(--muted-on-dark);max-width:22ch;line-height:1.5;}
+.pa{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px;}
+.pa span{border:1px solid var(--line-dark-2);border-radius:999px;padding:7px 15px;font-size:12.5px;color:var(--body-on-dark);}
+
+/* ============ FOOTER ============ */
+footer.site{background:var(--ink);padding:48px 0 32px;border-top:1px solid var(--line-dark);}
+.fgrid{max-width:var(--maxw);margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:60px;}
+.fgrid h4{color:#fff;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px;}
+.fcol p{color:var(--body-on-dark);font-size:14.5px;margin-bottom:9px;}
+.fcol p b{color:#fff;font-weight:600;}
+.fgrid a{display:block;color:var(--body-on-dark);font-size:14.5px;padding:6px 0;transition:color .3s;}
+.fgrid a:hover{color:var(--wine-bright);}
+.social{display:flex;gap:9px;margin-top:26px;}
+.social a{width:36px;height:36px;border-radius:9px;background:var(--ink-2);border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;padding:0;}
+.social a svg{width:16px;height:16px;color:var(--body-on-dark);}
+.social a:hover svg{color:#fff;}
+.legal{max-width:var(--maxw);margin:32px auto 0;padding:20px 40px 0;border-top:1px solid var(--line-dark);}
+.legal p{color:var(--muted-on-dark);font-size:13px;line-height:1.7;max-width:92ch;}
+.legal .cr{margin-top:14px;letter-spacing:.04em;}
+
+/* ============ QUICK BAR (for journalists) ============ */
+.quickbar{background:var(--platinum-2);border-bottom:1px solid var(--line);}
+.quickbar .inner{max-width:var(--maxw);margin:0 auto;padding:14px 40px;display:flex;align-items:baseline;flex-wrap:wrap;row-gap:8px;}
+.quickbar .qb-l{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--wine);margin-right:28px;}
+.quickbar a{font-size:13.5px;font-weight:600;color:var(--ink-90);transition:color .3s var(--e-soft);white-space:nowrap;padding:2px 24px;border-left:1px solid var(--line);}
+.quickbar a:nth-of-type(1){border-left:0;padding-left:0;}
+.quickbar a:hover{color:var(--wine);}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1040px){
+  .mast .inner{grid-template-columns:1fr;gap:36px;}
+  .lead-top{grid-template-columns:1fr;}
+  .lead-main{border-right:0;border-bottom:1px solid var(--line-soft);}
+  .about{grid-template-columns:1fr;gap:40px;}
+  .photos{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:860px){
+  .hdr nav,.hdr .tel,.hdr .r{display:none;}
+  .menu-btn{display:flex;}
+  .fgrid{grid-template-columns:1fr;gap:44px;}
+  .mast .inner{grid-template-columns:1fr;gap:36px;}
+  .sec-head{grid-template-columns:1fr;gap:14px;}
+  .sec-head .note{justify-self:start;text-align:left;}
+  .cov-grid{grid-template-columns:1fr;gap:4px;}
+  .cov-tier{padding-top:18px;}
+  .row{grid-template-columns:1fr;gap:14px;}
+  .row .aside{justify-self:start;text-align:left;}
+  .row .figure-l{margin-left:0;}
+  .release .grid{grid-template-columns:1fr;gap:14px;}
+}
+@media(max-width:560px){
+  .wrap,.hdr,.mast .inner,.quickbar .inner,.fgrid,.legal{padding-inline:22px;}
+  .ledger .cell{padding:16px 18px;}
+  .lead-main,.lead-side,.cov{padding-left:26px;padding-right:26px;}
+  .photos{grid-template-columns:1fr 1fr;gap:14px;}
+  .kitrow,.kitbanner{grid-template-columns:1fr;}
+  .res{grid-template-columns:1fr;gap:6px;}
+  .sec{padding:40px 0;}
+}
+
+/* ============ CAREERS ============ */
+.jobs{margin-top:20px;display:flex;flex-direction:column;gap:24px;}
+.job{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-card);overflow:hidden;}
+.job-head{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start;padding:30px 32px 26px;border-bottom:1px solid var(--line-soft);}
+.job-head .hl{font-size:clamp(1.35rem,2.1vw,1.75rem);line-height:1.12;letter-spacing:-.025em;color:var(--ink-90);}
+.job .about{margin-top:14px;font-size:15.5px;line-height:1.55;color:var(--text);max-width:72ch;}
+.job .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.job .tag{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--ink-70);letter-spacing:.01em;}
+.job .apply-col{justify-self:end;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:9px;min-width:150px;}
+.job .apply-col .mini{font-size:11.5px;color:var(--muted);line-height:1.45;max-width:20ch;}
+.job-body{display:grid;grid-template-columns:1fr 1fr;}
+.job-col{padding:26px 32px 30px;}
+.job-col + .job-col{border-left:1px solid var(--line-soft);}
+.job-col h4{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.job-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+.job-col li{position:relative;padding-left:20px;font-size:14px;line-height:1.5;color:var(--text);}
+.job-col li::before{content:"";position:absolute;left:1px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--wine);}
+.job-perks{padding:24px 32px;border-top:1px solid var(--line-soft);}
+.job-perks h4{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.benefits{display:flex;flex-wrap:wrap;gap:8px;}
+.benefits span{border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12.5px;color:var(--text);background:var(--platinum-2);}
+.job-foot{padding:22px 32px;background:var(--platinum-2);border-top:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.job-foot .fnote{font-size:13px;color:var(--muted);font-style:italic;max-width:64ch;}
+
+/* motto / culture card */
+.motto{background:var(--ink-2);border:1px solid var(--line-dark-2);border-radius:16px;padding:34px 32px;}
+.motto .ml{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--wine-bright);}
+.motto blockquote{margin:16px 0 0;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.08;letter-spacing:-.025em;color:#fff;font-weight:600;}
+.motto p{margin-top:16px;color:var(--body-on-dark);font-size:14.5px;line-height:1.6;max-width:40ch;}
+
+/* how to apply (light) */
+.apply-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;margin-top:24px;}
+.apply-steps{counter-reset:step;display:flex;flex-direction:column;}
+.apply-steps .stp{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:18px 0;border-top:1px solid var(--line);}
+.apply-steps .stp:first-child{border-top:0;padding-top:0;}
+.apply-steps .num{counter-increment:step;width:34px;height:34px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--wine);font-variant-numeric:tabular-nums;flex-shrink:0;}
+.apply-steps .num::before{content:counter(step);}
+.apply-steps .stp .t{font-size:15.5px;font-weight:600;color:var(--ink-90);}
+.apply-steps .stp .d{margin-top:5px;font-size:14px;color:var(--muted);line-height:1.55;max-width:48ch;}
+.apply-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 30px;box-shadow:var(--shadow-card);}
+.apply-card .who{font-size:1.2rem;font-weight:600;color:var(--ink-90);letter-spacing:-.015em;}
+.apply-card .role{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);margin-top:6px;}
+.apply-card .lines{margin-top:22px;display:flex;flex-direction:column;gap:10px;}
+.apply-card .lines p{color:var(--text);font-size:14px;}
+.apply-card .lines p b{color:var(--ink-90);font-weight:600;}
+.apply-card .cta{margin-top:24px;}
+
+@media(max-width:860px){
+  .job-head{grid-template-columns:1fr;}
+  .job .apply-col{justify-self:start;text-align:left;align-items:flex-start;}
+  .job-body{grid-template-columns:1fr;}
+  .job-col + .job-col{border-left:0;border-top:1px solid var(--line-soft);}
+  .apply-grid{grid-template-columns:1fr;gap:36px;}
+}
+</style>
+<noscript><style>.reveal{opacity:1;transform:none;}</style></noscript>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="hdr">
+    <a class="brand" href="https://www.veenfirm.com/" aria-label="The Veen Firm home"><img src="assets/img/veen-logo-white.png" alt="Veen Firm Trial Law" /></a>
+    <nav>
+      <a href="https://www.veenfirm.com/attorneys/">Attorneys</a>
+      <a href="https://www.veenfirm.com/case-results/">Case Results</a>
+      <a href="https://www.veenfirm.com/practice-areas/">Practice Areas</a>
+      <a href="index.html">Press Room</a>
+      <a href="#" class="here">Careers</a>
+    </nav>
+    <div class="r">
+      <a class="tel" href="tel:4156734800">(415) 673-4800</a>
+      <a class="btn btn-primary btn-sm" href="#openings">View open roles<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
+    </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <nav>
+      <a href="https://www.veenfirm.com/attorneys/">Attorneys</a>
+      <a href="https://www.veenfirm.com/case-results/">Case Results</a>
+      <a href="https://www.veenfirm.com/practice-areas/">Practice Areas</a>
+      <a href="index.html">Press Room</a>
+      <a href="#" class="here">Careers</a>
+    </nav>
+    <div class="mrow">
+      <a class="tel" href="tel:4156734800">(415) 673-4800</a>
+      <a class="btn btn-primary btn-sm" href="#openings">View open roles<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MASTHEAD ============ -->
+<section class="mast">
+  <div class="ph" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="hero-l">
+      <h1 class="reveal">Careers</h1>
+      <p class="loc reveal">The Veen Firm &middot; San Francisco, California</p>
+      <div class="actions reveal">
+        <a class="btn btn-primary" href="#openings">See open roles<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg></span></a>
+        <a class="btn btn-dark" href="#apply">How to apply<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        <a class="btn btn-dark" href="#culture">Our culture<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      </div>
+    </div>
+    <div class="ledger reveal">
+      <div class="cell"><div class="n">2</div><div class="l">Open roles, hiring now</div></div>
+      <div class="cell"><div class="n">50<span class="u">yr</span></div><div class="l">Of trial practice, since 1975</div></div>
+      <div class="cell"><div class="n">$1<span class="u">B</span>+</div><div class="l">Recovered for clients</div></div>
+      <div class="cell"><div class="n">SF</div><div class="l">In person &middot; 20 Haight St</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK BAR (for candidates) ============ -->
+<div class="quickbar">
+  <div class="inner">
+    <span class="qb-l">For candidates</span>
+    <a href="#openings">Open roles &#8595;</a>
+    <a href="#apply">How to apply &#8595;</a>
+    <a href="#culture">Our culture &#8595;</a>
+    <a href="mailto:jobs@veenfirm.com?subject=Careers%20at%20The%20Veen%20Firm">jobs@veenfirm.com</a>
+    <a href="index.html">Press Room &#8599;</a>
+  </div>
+</div>
+
+<!-- ============ OPEN ROLES ============ -->
+<section id="openings" class="sec light">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ttl"><h2>Open Roles</h2></div>
+      <p class="note">Both roles are full-time and in person in San Francisco.</p>
+    </div>
+
+    <div class="jobs">
+
+      <!-- Litigation Paralegal -->
+      <article class="job reveal">
+        <div class="job-head">
+          <div>
+            <div class="dateline"><span class="d">Posted April 10, 2026</span><span class="pip"></span><span class="cat">Paralegal</span></div>
+            <h3 class="hl">Litigation Paralegal</h3>
+            <p class="about">The Veen Firm, a plaintiff personal injury law firm, is seeking a Litigation Paralegal to support a team of attorneys handling a large and varied caseload through trial, including case management, administrative support, document preparation and review, research, and communications with clients, attorneys, experts, and the court. A successful candidate can thrive in a fast-paced environment and is a team player.</p>
+            <div class="tags"><span class="tag">Full-time</span><span class="tag">In person &middot; San Francisco</span><span class="tag">5+ yrs PI litigation preferred</span></div>
+          </div>
+          <div class="apply-col">
+            <a class="btn btn-primary btn-sm" href="mailto:jobs@veenfirm.com?subject=Litigation%20Paralegal%20Application">Apply<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+            <span class="mini">Resume and writing sample</span>
+          </div>
+        </div>
+        <div class="job-body">
+          <div class="job-col">
+            <h4>What you&rsquo;ll do</h4>
+            <ul>
+              <li>Assist multiple attorneys during various stages of litigation.</li>
+              <li>Prepare draft discovery, responses, and privilege logs under an attorney&rsquo;s direction; organize, index, and Bates-stamp document production.</li>
+              <li>Finalize draft pleadings, discovery, mediation briefs, motions, and other documents, including proofreading, formatting, and assembling exhibits.</li>
+              <li>Perform basic legal research, online research, and research of court rules and procedures.</li>
+              <li>Communicate professionally with clients, courts, attorneys, and experts.</li>
+              <li>Open health insurance liens and communicate with insurers to obtain lien information and provide updates.</li>
+              <li>Prepare medical expense summaries.</li>
+              <li>Assist in trial preparation, including trial binders and organizing exhibits.</li>
+              <li>Coordinate with experts and assist with expert file production.</li>
+            </ul>
+          </div>
+          <div class="job-col">
+            <h4>What you bring</h4>
+            <ul>
+              <li>At least 5 years as a personal injury litigation paralegal preferred (plaintiff or defense).</li>
+              <li>Strong personal and professional judgment, and the initiative to act in the absence of direction.</li>
+              <li>Ability to work under pressure across a wide variety of activities with discretion and poise.</li>
+              <li>Familiarity with state and federal rules and procedures for depositions, discovery, mediations, hearings, and trials.</li>
+              <li>Strong Microsoft Office Suite, Adobe Acrobat Pro, Zoom, and DocuSign skills.</li>
+              <li>Meticulous attention to detail, organized, efficient, and flexible.</li>
+              <li>Proactive, resourceful, deadline-focused, and able to work independently.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-foot">
+          <p class="fnote">Please tell us how you&rsquo;d be a good fit and include your resume and a recent writing sample. Please do not apply if you have no relevant experience.</p>
+          <a class="btn btn-ghost btn-sm" href="mailto:jobs@veenfirm.com?subject=Litigation%20Paralegal%20Application">Apply for this role<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+      </article>
+
+      <!-- Personal Injury Litigation Attorney -->
+      <article class="job reveal">
+        <div class="job-head">
+          <div>
+            <div class="dateline"><span class="d">Posted January 21, 2026</span><span class="pip"></span><span class="cat">Attorney</span></div>
+            <h3 class="hl">Personal Injury Litigation Attorney</h3>
+            <p class="about">A full-time, exempt position at The Veen Firm, a plaintiff personal injury firm. We are seeking a California-licensed attorney with 2 to 10 years of personal injury litigation experience (either plaintiff side or defense). The ideal candidate has experience arguing motions, taking both fact and expert depositions, and having primary responsibility for their own caseload. Please do not apply if you are a post-bar graduate or if you are not licensed to practice law in California.</p>
+            <div class="tags"><span class="tag">Full-time &middot; Exempt</span><span class="tag">In person &middot; San Francisco</span><span class="tag">CA licensed</span><span class="tag">2&ndash;10 yrs PI litigation</span></div>
+          </div>
+          <div class="apply-col">
+            <a class="btn btn-primary btn-sm" href="mailto:jobs@veenfirm.com?subject=PI%20Litigation%20Attorney%20Application">Apply<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+            <span class="mini">Resume and writing sample</span>
+          </div>
+        </div>
+        <div class="job-body">
+          <div class="job-col">
+            <h4>What you&rsquo;ll do</h4>
+            <ul>
+              <li>Handle all aspects of a litigation caseload, including client and team communication, evidence gathering, written discovery and depositions, enforcing discovery, assembling mediation packages, and communicating with defense counsel and insurance adjusters.</li>
+              <li>Ready cases for trial, including all pre-trial documents, motions in limine, and witness preparation.</li>
+              <li>Support the trial team as necessary during trial, and/or participate in trial.</li>
+              <li>Volunteer readily when team members need help, even when the task falls outside your technical role; seek increased responsibility, and ask for and offer help when needed.</li>
+              <li>Respond to and incorporate management direction and constructive feedback.</li>
+              <li>Staunchly protect our firm&rsquo;s culture and reputation.</li>
+            </ul>
+          </div>
+          <div class="job-col">
+            <h4>What you bring</h4>
+            <ul>
+              <li>Active California license to practice law (required).</li>
+              <li>2 to 10 years of personal injury litigation experience (plaintiff or defense).</li>
+              <li>Experience arguing motions and taking both fact and expert depositions.</li>
+              <li>Primary responsibility for handling your own caseload.</li>
+              <li>Strong writing and communication skills.</li>
+              <li>Well-developed organizational and time-management skills.</li>
+              <li>An innovative, creative mindset and strong practical litigation skills.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-perks">
+          <h4>Benefits</h4>
+          <div class="benefits">
+            <span>401(k)</span><span>401(k) matching</span><span>Health insurance</span><span>Dental insurance</span><span>Vision insurance</span><span>Flexible spending account</span><span>Paid time off</span><span>Parental leave</span><span>Professional development assistance</span>
+          </div>
+        </div>
+        <div class="job-foot">
+          <p class="fnote">Please tell us how you&rsquo;d be a good fit for our firm and include your resume and a recent writing sample.</p>
+          <a class="btn btn-ghost btn-sm" href="mailto:jobs@veenfirm.com?subject=PI%20Litigation%20Attorney%20Application">Apply for this role<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CULTURE ============ -->
+<section id="culture" class="sec ink">
+  <div class="wrap">
+    <div class="about">
+      <div class="lead-col">
+        <h2>Our firm, mission &amp; culture</h2>
+        <p class="big">The Veen Firm is a nationally recognized group of trial attorneys known for their expertise and dedication to achieving exceptional results.</p>
+        <p class="sm">Our team-oriented approach allows us to provide personalized attention similar to a boutique firm while maintaining the resources and capability of a prominent, well-established law firm. We specialize in handling complex cases with meticulous research and strategic planning to secure the best outcomes for our clients, and our collaborative efforts have consistently contributed to higher client awards and enhanced reputations for partnering attorneys.</p>
+        <p class="sm">We&rsquo;re also a collegial group that likes to have fun together, whether that&rsquo;s a Valkyries, Giants, or Warriors game, an event partnership with the SF Bike Coalition, or a poker night at our office for the San Francisco legal community. We want this to be a place where people feel like they can do great work with great people.</p>
+        <div class="pa">
+          <span>Team-oriented</span><span>Collegial &amp; fun</span><span>Meticulous research</span><span>Strategic planning</span><span>Boutique attention</span><span>Passion for justice</span>
+        </div>
+      </div>
+      <div>
+        <div class="motto">
+          <div class="ml">Our motto</div>
+          <blockquote>&ldquo;We&rsquo;re here to help.&rdquo;</blockquote>
+          <p>Based on a passion for justice. Helping the catastrophically injured since 1975.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO APPLY ============ -->
+<section id="apply" class="sec plat">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ttl"><h2>How to apply</h2></div>
+      <p class="note">Email your resume and a recent writing sample, and let us know how you would be a good fit for our firm.</p>
+    </div>
+    <div class="apply-grid">
+      <div class="apply-steps">
+        <div class="stp"><div class="num"></div><div><div class="t">Resume and writing sample</div><div class="d">Include a current resume and a recent writing sample.</div></div></div>
+        <div class="stp"><div class="num"></div><div><div class="t">A note on your fit</div><div class="d">Let us know how you would be a good fit for our firm.</div></div></div>
+        <div class="stp"><div class="num"></div><div><div class="t">Email jobs@veenfirm.com</div><div class="d">Send your application to jobs@veenfirm.com. Please do not apply if you have no relevant experience.</div></div></div>
+      </div>
+      <div class="apply-card">
+        <div class="who">The Veen Firm</div>
+        <div class="role">Careers &middot; San Francisco</div>
+        <div class="lines">
+          <p><b>Email:</b> jobs@veenfirm.com</p>
+          <p><b>Main:</b> (415) 673-4800</p>
+          <p><b>Address:</b> 20 Haight St, San Francisco, CA 94102</p>
+        </div>
+        <a class="btn btn-primary cta" href="mailto:jobs@veenfirm.com?subject=Careers%20at%20The%20Veen%20Firm">Email your application<span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="fgrid">
+    <div class="fcol">
+      <h4>Contact</h4>
+      <p><b>Careers:</b> jobs@veenfirm.com</p>
+      <p><b>Main:</b> (415) 673-4800</p>
+      <p><b>Email:</b> info@veenfirm.com</p>
+      <p><b>Address:</b> 20 Haight St, San Francisco, CA 94102</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/the-veen-firm/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.02 2 2 0 0 1 4 .02zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg></a>
+        <a href="https://www.facebook.com/TheVeenFirm" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+        <a href="https://x.com/TheVeenFirm" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.4 8.5L23 22h-6.9l-5.4-7-6.2 7H1.4l7.9-9L1 2h7l4.9 6.4L18.9 2zm-2.4 18h1.9L7.6 4H5.6l10.9 16z"/></svg></a>
+        <a href="https://www.instagram.com/theveenfirm/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Attorneys</h4>
+      <a href="https://www.veenfirm.com/attorneys/anthony-label/" target="_blank" rel="noopener">Anthony L. Label</a>
+      <a href="https://www.veenfirm.com/attorneys/annie-wu/" target="_blank" rel="noopener">Annie Wu</a>
+      <a href="https://www.veenfirm.com/attorneys/theo-emison/" target="_blank" rel="noopener">Theo J. Emison</a>
+      <a href="https://www.veenfirm.com/attorneys/steven-kronenberg/" target="_blank" rel="noopener">Steven A. Kronenberg</a>
+      <a href="https://www.veenfirm.com/attorneys/" target="_blank" rel="noopener" style="color:var(--wine-bright);">All attorneys &#8599;</a>
+    </div>
+    <div class="fcol">
+      <h4>The firm</h4>
+      <a href="https://www.veenfirm.com/case-results/" target="_blank" rel="noopener">Case Results</a>
+      <a href="https://www.veenfirm.com/practice-areas/" target="_blank" rel="noopener">Practice Areas</a>
+      <a href="index.html">Press Room</a>
+      <a href="https://www.veenfirm.com/contact/" target="_blank" rel="noopener">Contact</a>
+    </div>
+  </div>
+  <div class="legal">
+    <p>The information contained on this website is for general informational purposes only and does not constitute legal advice. No attorney-client relationship is formed by viewing this site or contacting us through it. Prior results do not guarantee a similar outcome.</p>
+    <p class="cr">The Veen Firm LLP, 2026</p>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+  // Mobile nav toggle
+  (function(){
+    var btn=document.getElementById('menu-btn');
+    var panel=document.getElementById('mobile-nav');
+    if(!btn||!panel) return;
+    btn.addEventListener('click',function(){
+      var open=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded',open?'false':'true');
+      btn.setAttribute('aria-label',open?'Open menu':'Close menu');
+      if(open){panel.removeAttribute('data-open');}else{panel.setAttribute('data-open','');}
+    });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        btn.setAttribute('aria-expanded','false');
+        btn.setAttribute('aria-label','Open menu');
+        panel.removeAttribute('data-open');
+      });
+    });
+  })();
+</script>
+</body>
+</html>

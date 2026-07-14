@@ -80,6 +80,24 @@ U.S. District Court, N.D. Cal. Filed May 22, 2026. Attorneys Anthony L. Label an
 - SFGATE: https://www.sfgate.com/news/bayarea/article/sf-civil-rights-activists-rally-to-demand-22272922.php  [live·paywalled]
 - New York Post (via Yahoo): https://www.yahoo.com/news/us/articles/20-women-sue-sf-sheriff-022907295.html  [live·paywalled]
 
+### People v. Nanette Musto (criminal charges tied to the County Jail No. 2 case)
+S.F. Superior Court, No. 26016092. Charges (PC 242 battery; PC 149 assault by a public officer) announced July 13, 2026; arraignment July 14, 2026. Complaining witness Marilyn Lopez is a plaintiff in the Sahagun Lopez class action.
+
+- veenfirm.com (firm statement/case page): https://www.veenfirm.com/sf-jail-strip-search-lawsuit/  [firm]
+- SF Chronicle: https://www.sfchronicle.com/crime/article/sf-sheriffs-deputy-charged-offensive-touching-22343623.php  [live·paywalled; URL from search index — confirm by hand, site blocks bots]
+- SF Standard: https://sfstandard.com/2026/07/13/da-charges-san-francisco-sheriff-s-deputy-allegedly-groping-inmate/  [live]
+- Mission Local: https://missionlocal.org/2026/07/san-francisco-da-charges-sheriff-deputy-assault/  [live]
+- KTVU FOX 2: https://www.ktvu.com/news/sf-sheriffs-deputy-charged-offensive-touching-jail-inmate  [live]
+- CBS Bay Area: https://www.cbsnews.com/sanfrancisco/news/deputy-at-san-francisco-jail-charged-with-allegedly-groping-female-inmate/  [live]
+- KRON4: https://www.kron4.com/news/bay-area/sf-sheriffs-deputy-charged-with-assault-for-inappropriately-touching-inmate/  [live; site blocks bots (403) — confirmed via headline match]
+- NBC Bay Area: https://www.nbcbayarea.com/news/local/san-francisco-sheriffs-deputy-charged/4113420/  [live]
+- Patch (San Francisco): https://patch.com/california/san-francisco/sf-deputy-who-touched-inmates-breasts-charged-battery-da  [live]
+- The SF News: https://www.thesfnews.com/nanette-musto-charged-with-offensive-touching-of-jail-inmate/102640  [live]
+- New York Post: https://nypost.com/2026/07/13/us-news/female-deputy-sheriff-busted-in-san-francisco-for-allegedly-groping-inmates-breast/  [live; site blocks bots — URL verified via search index and byline screenshot (Ben Chapman)]
+- Firm arraignment-day wire release (EIN Presswire, distributed July 14, 2026): tracked reprints per EIN report include AP News, National Law Review, PR Wire India, AFV News. Reprint URLs not yet captured.
+
+Excluded after verification: Marin County Visitor "SF Deputy Charged With Sexual Battery Against Jail Inmate" (different deputy — Edgarin M. Suncin — reprinted from Yahoo); MSN reprints of CBS/NBC stories (duplicates).
+
 ### Doe v. Santa Barbara Unified School District (Dos Pueblos High School)
 Santa Barbara County Superior Court. Filed May 13, 2026. Attorneys Steven A. Kronenberg and Anthony L. Label, with Bryan Ceglio.
 
@@ -121,9 +139,9 @@ Cal. Supreme Court No. S284303, unanimous 7-0 decision May 1, 2025. Record $7 mi
 PR Newswire distribution report (`PH78165`) totals: **125 exact placements, ~141M potential audience, 62 journalists, 45 AP News outlets.** The report is a performance dashboard and names only its top placements (below); the full 125-outlet list is in the firm's PR Newswire online portal export.
 Named PR Newswire placements: WV News (Clarksburg, WV); The Malaysian Reserve (Malaysia); Benzinga Pro; Folsom Local News (Folsom, CA); Eastern Progress (Richmond, KY); CreditRiskMonitor; Morningstar; Manhattan Week (New York, NY); Latin Business Today; Jornal Web Digital (Brazil).
 - SF Chronicle (ruling): https://www.sfchronicle.com/politics/article/cyclist-oakland-injured-lawsuit-20305730.php  [live·paywalled]
-- Yahoo News (settlement, via KTVU): https://www.yahoo.com/news/articles/oakland-pay-bicyclist-7m-record-193425930.html  [live·paywalled]
+- Yahoo News (settlement, via KTVU): https://www.yahoo.com/news/articles/oakland-pay-bicyclist-7m-record-193425930.html  [dead as of 2026-07-14 (404); removed from press room]
 - PR Newswire (settlement release): https://www.prnewswire.com/news-releases/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions-302562606.html  [live·paywalled]
-- Morningstar (PR Newswire syndication): https://www.morningstar.com/news/pr-newswire/20250922ph78165/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions  [live·paywalled]
+- Morningstar (PR Newswire syndication): https://www.morningstar.com/news/pr-newswire/20250922ph78165/record-setting-oakland-bike-settlement-city-to-pay-7-million-to-bicyclist-for-dangerous-road-conditions  [dead as of 2026-07-14 (404); removed from press room]
 
 ### Botanic Tonics "Feel Free" class action (settlement)
 Torres v. Botanic Tonics, LLC, N.D. Cal., No. 3:23-cv-01460. Final approval Oct. 20, 2025; $8.75 million. Attorneys Anthony L. Label, Theo J. Emison, and Steven A. Kronenberg.
@@ -260,7 +278,7 @@ Settlement approved Aug. 30, 2015. Attorneys Anthony L. Label and Steven A. Kron
 ### Other firm/verdict recognition (2016–2017)
 - veenfirm.com (Veen Firm case featured in TopVerdict.com's Top 50 Settlements in California — $12M lineman settlement, posted 2017): https://www.veenfirm.com/the-veen-firm-s-case-featured-in-topverdict-com-s-top-50-settlements-in-california/  [firm]
 - veenfirm.com (Veen Firm case featured in SF Chronicle's Northern California Verdicts section, Jul 9, 2017): https://www.veenfirm.com/the-veen-firm-case-featured-in-san-francisco-chronicle-s-northern-california-verdicts-section/  [firm]
-- Jury Verdict Alert (laborer electrocuted; $14.3M, Fresno County — Craig Peters & S. Anoush Lancaster): https://juryverdictalert.com/construction-site-accident/submitted-item-17  [live]
+- Jury Verdict Alert (laborer electrocuted; $14.3M, Fresno County — Craig Peters & S. Anoush Lancaster): https://juryverdictalert.com/verdicts/construction-site-accident/submitted-item-17  [live; URL updated 2026-07-14, old /construction-site-accident/ path now 404]
 
 ---
 

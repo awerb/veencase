@@ -1,6 +1,6 @@
 # The Veen Firm Press Room
 
-A single-page newsroom for The Veen Firm LLP: recent cases in the news, press releases, media contacts, attorney photos, and a downloadable press kit. Built in the firm's design system (Montserrat, ink and wine, a single accent).
+A single-page newsroom for The Veen Firm LLP: recent cases in the news, press releases, media contacts, attorney photos, and downloadable media assets. Built in the firm's design system (Montserrat, ink and wine, a single accent).
 
 ## Files
 
@@ -9,13 +9,12 @@ A single-page newsroom for The Veen Firm LLP: recent cases in the news, press re
 - `careers.html` — the careers page (open roles, culture, how to apply).
 - `assets/press-releases/` — branded PDFs of the four released stories (Musto charges, Tesla, Santa Barbara, Whitehead).
 - `assets/fact-sheet/` — one-page firm fact sheet PDF.
-- `assets/img/` — firm logos, plus high-res attorney headshots used in the press kit.
-- `Veen-Press-Kit.zip` — the full kit (photos, logos, releases, fact sheet) for download.
+- `assets/img/` — firm logos, plus high-res attorney headshot backups.
 - `Media-Coverage-Master-List.md` — the verified list of every coverage link, by case.
 
 ## Notes
 
-- Attorney headshots and the hero photo load live from `veenfirm.com/wp-content/themes/mega-theme/images/`. On the firm's own site these are same-origin. If those theme files are ever renamed, update the `src` URLs in `index.html`. High-res copies are bundled in the press kit zip as a backup.
+- Attorney headshots and the hero photo load live from `veenfirm.com/wp-content/themes/mega-theme/images/`. On the firm's own site these are same-origin. If those theme files are ever renamed, update the `src` URLs in `index.html`. High-res copies are kept in `assets/img/` as a backup.
 - Each case links to its blog post on veenfirm.com. Coverage links open in a new tab.
 - Attorney photography by Julio Duffoo, free for Veen Firm media use.
 

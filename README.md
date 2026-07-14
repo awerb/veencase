@@ -5,7 +5,9 @@ A single-page newsroom for The Veen Firm LLP: recent cases in the news, press re
 ## Files
 
 - `index.html` — the press room page. Self-contained; no build step.
-- `assets/press-releases/` — branded PDFs of the three released stories (Tesla, Santa Barbara, Whitehead).
+- `video-room.html` — broadcast TV coverage (24 station reports), linked from the press room.
+- `careers.html` — the careers page (open roles, culture, how to apply).
+- `assets/press-releases/` — branded PDFs of the four released stories (Musto charges, Tesla, Santa Barbara, Whitehead).
 - `assets/fact-sheet/` — one-page firm fact sheet PDF.
 - `assets/img/` — firm logos, plus high-res attorney headshots used in the press kit.
 - `Veen-Press-Kit.zip` — the full kit (photos, logos, releases, fact sheet) for download.

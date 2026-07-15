@@ -9,12 +9,13 @@ A single-page newsroom for The Veen Firm LLP: recent cases in the news, press re
 - `careers.html` — the careers page (open roles, culture, how to apply).
 - `assets/press-releases/` — branded PDFs of the four released stories (Musto charges, Tesla, Santa Barbara, Whitehead).
 - `assets/fact-sheet/` — one-page firm fact sheet PDF.
-- `assets/img/` — firm logos, plus high-res attorney headshot backups.
+- `assets/img/` — firm logos and the social share card.
+- `assets/img/headshots/` — attorney portraits in `web/` (1200px) and `print/` (full-resolution) versions, from the 2025–26 Julio Duffoo shoot. Bryan Ceglio is web-only (no print-res file supplied).
 - `Media-Coverage-Master-List.md` — the verified list of every coverage link, by case.
 
 ## Notes
 
-- Attorney headshots and the hero photo load live from `veenfirm.com/wp-content/themes/mega-theme/images/`. On the firm's own site these are same-origin. If those theme files are ever renamed, update the `src` URLs in `index.html`. High-res copies are kept in `assets/img/` as a backup.
+- Attorney portraits are served locally from `assets/img/headshots/` with per-attorney web and print download buttons. Only the masthead background photo still loads from `veenfirm.com/wp-content/themes/mega-theme/images/` (same-origin on the firm's own site).
 - Each case links to its blog post on veenfirm.com. Coverage links open in a new tab.
 - Attorney photography by Julio Duffoo, free for Veen Firm media use.
 
